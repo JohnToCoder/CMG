@@ -1,0 +1,577 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0867BFA4-1F20-4589-83B5-0893D7249162}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CMG</RootNamespace>
+    <AssemblyName>CMG</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\031.gif" />
+    <Content Include="Images\a.gif" />
+    <Content Include="Images\arrow.gif" />
+    <Content Include="Images\blocks.gif" />
+    <Content Include="Images\bootnbg.jpg" />
+    <Content Include="Images\bt_bg.gif" />
+    <Content Include="Images\bullet.gif" />
+    <Content Include="Images\buttom-copy-bg.gif" />
+    <Content Include="Images\buttom-left.gif" />
+    <Content Include="Images\buttom_bgs.gif" />
+    <Content Include="Images\buttom_left2.gif" />
+    <Content Include="Images\buttom_right2.gif" />
+    <Content Include="Images\buttonbg.gif" />
+    <Content Include="Images\calendar.png" />
+    <Content Include="Images\CategorizeMenu.png" />
+    <Content Include="Images\content-bg-line.gif" />
+    <Content Include="Images\cs.css" />
+    <Content Include="Images\Css.css" />
+    <Content Include="Images\delete.gif" />
+    <Content Include="Images\directory.png" />
+    <Content Include="Images\domain.gif" />
+    <Content Include="Images\edit.gif" />
+    <Content Include="Images\endbott.gif" />
+    <Content Include="Images\exam_content.gif" />
+    <Content Include="Images\foot_bg.gif" />
+    <Content Include="Images\g.gif" />
+    <Content Include="Images\group.gif" />
+    <Content Include="Images\group.png" />
+    <Content Include="Images\icon-demo.gif" />
+    <Content Include="Images\icon-login-seaver.gif" />
+    <Content Include="Images\icon-mail2.gif" />
+    <Content Include="Images\icon-phone.gif" />
+    <Content Include="Images\icon2_004.png" />
+    <Content Include="Images\icon2_089.png" />
+    <Content Include="Images\icon2_090.png" />
+    <Content Include="Images\ico_accept.gif" />
+    <Content Include="Images\ico_accept1.gif" />
+    <Content Include="Images\ico_accept2.gif" />
+    <Content Include="Images\ico_arrow.gif" />
+    <Content Include="Images\ico_bbs.gif" />
+    <Content Include="Images\ico_browsefiles.gif" />
+    <Content Include="Images\ico_browsefolder.gif" />
+    <Content Include="Images\ico_cache.gif" />
+    <Content Include="Images\ico_database.gif" />
+    <Content Include="Images\ico_data_blank.gif" />
+    <Content Include="Images\ico_data_delete.gif" />
+    <Content Include="Images\ico_data_insert.gif" />
+    <Content Include="Images\ico_data_start.gif" />
+    <Content Include="Images\ico_data_stop.gif" />
+    <Content Include="Images\ico_data_undo.gif" />
+    <Content Include="Images\ico_down.gif" />
+    <Content Include="Images\ico_error.gif" />
+    <Content Include="Images\ico_exam.gif" />
+    <Content Include="Images\ico_false.gif" />
+    <Content Include="Images\ico_faq.gif" />
+    <Content Include="Images\ico_file.gif" />
+    <Content Include="Images\ico_folder.gif" />
+    <Content Include="Images\ico_guestbook.gif" />
+    <Content Include="Images\ico_help.gif" />
+    <Content Include="Images\ico_home.gif" />
+    <Content Include="Images\ico_html.gif" />
+    <Content Include="Images\ico_import.gif" />
+    <Content Include="Images\ico_import111.gif" />
+    <Content Include="Images\ico_intro.gif" />
+    <Content Include="Images\ico_jingpin.gif" />
+    <Content Include="Images\ico_jingpin_insert.gif" />
+    <Content Include="Images\ico_link.gif" />
+    <Content Include="Images\ico_log.gif" />
+    <Content Include="Images\ico_network.gif" />
+    <Content Include="Images\ico_news.gif" />
+    <Content Include="Images\ico_notice.gif" />
+    <Content Include="Images\ico_password.gif" />
+    <Content Include="Images\ico_photo.gif" />
+    <Content Include="Images\ico_products.gif" />
+    <Content Include="Images\ico_registerkey.gif" />
+    <Content Include="Images\ico_search.gif" />
+    <Content Include="Images\ico_settings.gif" />
+    <Content Include="Images\ico_sql.gif" />
+    <Content Include="Images\ico_system.gif" />
+    <Content Include="Images\ico_task.gif" />
+    <Content Include="Images\ico_template.gif" />
+    <Content Include="Images\ico_true.gif" />
+    <Content Include="Images\ico_up.gif" />
+    <Content Include="Images\ico_up1.gif" />
+    <Content Include="Images\ico_upload.gif" />
+    <Content Include="Images\ico_user.gif" />
+    <Content Include="Images\ico_userclass.gif" />
+    <Content Include="Images\ico_usergroup.gif" />
+    <Content Include="Images\ico_video.gif" />
+    <Content Include="Images\ico_vocabulary.gif" />
+    <Content Include="Images\imageedit.gif" />
+    <Content Include="Images\index_15.gif" />
+    <Content Include="Images\index_3.gif" />
+    <Content Include="Images\index_8.gif" />
+    <Content Include="Images\index_but_02.gif" />
+    <Content Include="Images\index_but_04.gif" />
+    <Content Include="Images\ipsecurity.gif" />
+    <Content Include="Images\layout-browser-hd-bg.gif" />
+    <Content Include="Images\left-bg.gif" />
+    <Content Include="Images\line.gif" />
+    <Content Include="Images\line2.jpg" />
+    <Content Include="Images\linkbg2.gif" />
+    <Content Include="Images\loading.gif" />
+    <Content Include="Images\login-buttom-bg.gif" />
+    <Content Include="Images\login-content-bg.gif" />
+    <Content Include="Images\login-top-bg.gif" />
+    <Content Include="Images\login-wel.gif" />
+    <Content Include="Images\login.css" />
+    <Content Include="Images\login_bg.jpg" />
+    <Content Include="Images\logout.gif" />
+    <Content Include="Images\luck.gif" />
+    <Content Include="Images\mail.gif" />
+    <Content Include="Images\menubox_memberico.gif" />
+    <Content Include="Images\menu_bg.gif" />
+    <Content Include="Images\nav_bg.gif" />
+    <Content Include="Images\nav_link.png" />
+    <Content Include="Images\news.gif" />
+    <Content Include="Images\new_ico001.gif" />
+    <Content Include="Images\new_ico002.gif" />
+    <Content Include="Images\new_ico003.gif" />
+    <Content Include="Images\new_ico01.gif" />
+    <Content Include="Images\new_ico02.gif" />
+    <Content Include="Images\new_ico03.gif" />
+    <Content Include="Images\new_ico04.gif" />
+    <Content Include="Images\new_ico05.gif" />
+    <Content Include="Images\new_ico06.gif" />
+    <Content Include="Images\new_ico07.gif" />
+    <Content Include="Images\new_ico08.gif" />
+    <Content Include="Images\new_ico09.gif" />
+    <Content Include="Images\new_ico10.gif" />
+    <Content Include="Images\new_ico11.gif" />
+    <Content Include="Images\new_ico12.gif" />
+    <Content Include="Images\new_ico13.gif" />
+    <Content Include="Images\new_ico14.gif" />
+    <Content Include="Images\new_ico15.gif" />
+    <Content Include="Images\new_ico16.gif" />
+    <Content Include="Images\new_ico17.gif" />
+    <Content Include="Images\new_ico18.gif" />
+    <Content Include="Images\new_ico19.gif" />
+    <Content Include="Images\new_ico20.gif" />
+    <Content Include="Images\notandum.gif" />
+    <Content Include="Images\notandumlist.gif" />
+    <Content Include="Images\phone.gif" />
+    <Content Include="Images\pic1.gif" />
+    <Content Include="Images\plugin_big.gif" />
+    <Content Include="Images\reload.png" />
+    <Content Include="Images\rightpart_cacheico1.png" />
+    <Content Include="Images\right_smbg.jpg" />
+    <Content Include="Images\set.gif" />
+    <Content Include="Images\skin.css" />
+    <Content Include="Images\style_login.css" />
+    <Content Include="Images\submitMiniGreen.gif" />
+    <Content Include="Images\submitMiniGreenOver.gif" />
+    <Content Include="Images\Submit_bg.gif" />
+    <Content Include="Images\t2bg1.gif" />
+    <Content Include="Images\t2bg4.gif" />
+    <Content Include="Images\t2bg5.gif" />
+    <Content Include="Images\TableDrawTable.png" />
+    <Content Include="Images\temp.gif" />
+    <Content Include="Images\thead_bg.gif" />
+    <Content Include="Images\tools-sprites-trans.gif" />
+    <Content Include="Images\top_bg.gif" />
+    <Content Include="Images\top_bt.jpg" />
+    <Content Include="Images\touxiang.jpg" />
+    <Content Include="Images\user_logo.png" />
+    <Content Include="Images\vie.gif" />
+    <Content Include="Images\X.gif" />
+    <Content Include="Images\yc.gif" />
+    <Content Include="Images\yx.gif" />
+    <Content Include="Images\zanwu.gif" />
+    <Content Include="Index.aspx" />
+    <Content Include="IsLogin.ascx" />
+    <Content Include="JS\common.js" />
+    <Content Include="JS\index.js" />
+    <Content Include="JS\jquery-1.10.2.min.js" />
+    <Content Include="JS\jquery-1.4.1-vsdoc.js" />
+    <Content Include="JS\jquery-1.4.1.js" />
+    <Content Include="JS\jquery-1.4.1.min.js" />
+    <Content Include="JS\jquery-ui.js" />
+    <Content Include="JS\jquery.easyui.min.js" />
+    <Content Include="JS\jquery.min.js" />
+    <Content Include="JS\login.js" />
+    <Content Include="JS\MD5.js" />
+    <Content Include="JS\themes\default\accordion.css" />
+    <Content Include="JS\themes\default\calendar.css" />
+    <Content Include="JS\themes\default\combo.css" />
+    <Content Include="JS\themes\default\combobox.css" />
+    <Content Include="JS\themes\default\datagrid.css" />
+    <Content Include="JS\themes\default\datebox.css" />
+    <Content Include="JS\themes\default\dialog.css" />
+    <Content Include="JS\themes\default\easyui.css" />
+    <Content Include="JS\themes\default\images\accordion_collapse.png" />
+    <Content Include="JS\themes\default\images\accordion_expand.png" />
+    <Content Include="JS\themes\default\images\blank.gif" />
+    <Content Include="JS\themes\default\images\button_a_bg.gif" />
+    <Content Include="JS\themes\default\images\button_plain_hover.png" />
+    <Content Include="JS\themes\default\images\button_span_bg.gif" />
+    <Content Include="JS\themes\default\images\calendar_nextmonth.gif" />
+    <Content Include="JS\themes\default\images\calendar_nextyear.gif" />
+    <Content Include="JS\themes\default\images\calendar_prevmonth.gif" />
+    <Content Include="JS\themes\default\images\calendar_prevyear.gif" />
+    <Content Include="JS\themes\default\images\combo_arrow.gif" />
+    <Content Include="JS\themes\default\images\datagrid_header_bg.gif" />
+    <Content Include="JS\themes\default\images\datagrid_row_collapse.gif" />
+    <Content Include="JS\themes\default\images\datagrid_row_expand.gif" />
+    <Content Include="JS\themes\default\images\datagrid_sort_asc.gif" />
+    <Content Include="JS\themes\default\images\datagrid_sort_desc.gif" />
+    <Content Include="JS\themes\default\images\datagrid_title_bg.png" />
+    <Content Include="JS\themes\default\images\datebox_arrow.png" />
+    <Content Include="JS\themes\default\images\layout_button_down.gif" />
+    <Content Include="JS\themes\default\images\layout_button_left.gif" />
+    <Content Include="JS\themes\default\images\layout_button_right.gif" />
+    <Content Include="JS\themes\default\images\layout_button_up.gif" />
+    <Content Include="JS\themes\default\images\menu.gif" />
+    <Content Include="JS\themes\default\images\menu_downarrow.png" />
+    <Content Include="JS\themes\default\images\menu_rightarrow.png" />
+    <Content Include="JS\themes\default\images\menu_sep.png" />
+    <Content Include="JS\themes\default\images\menu_split_downarrow.png" />
+    <Content Include="JS\themes\default\images\messager_error.gif" />
+    <Content Include="JS\themes\default\images\messager_info.gif" />
+    <Content Include="JS\themes\default\images\messager_question.gif" />
+    <Content Include="JS\themes\default\images\messager_warning.gif" />
+    <Content Include="JS\themes\default\images\pagination_first.gif" />
+    <Content Include="JS\themes\default\images\pagination_last.gif" />
+    <Content Include="JS\themes\default\images\pagination_load.png" />
+    <Content Include="JS\themes\default\images\pagination_loading.gif" />
+    <Content Include="JS\themes\default\images\pagination_next.gif" />
+    <Content Include="JS\themes\default\images\pagination_prev.gif" />
+    <Content Include="JS\themes\default\images\panel_loading.gif" />
+    <Content Include="JS\themes\default\images\panel_title.png" />
+    <Content Include="JS\themes\default\images\panel_tools.gif" />
+    <Content Include="JS\themes\default\images\panel_tool_collapse.gif" />
+    <Content Include="JS\themes\default\images\panel_tool_expand.gif" />
+    <Content Include="JS\themes\default\images\searchbox_button.png" />
+    <Content Include="JS\themes\default\images\spinner_arrow_down.gif" />
+    <Content Include="JS\themes\default\images\spinner_arrow_up.gif" />
+    <Content Include="JS\themes\default\images\tabs_active.png" />
+    <Content Include="JS\themes\default\images\tabs_close.gif" />
+    <Content Include="JS\themes\default\images\tabs_enabled.png" />
+    <Content Include="JS\themes\default\images\tabs_leftarrow.png" />
+    <Content Include="JS\themes\default\images\tabs_rightarrow.png" />
+    <Content Include="JS\themes\default\images\tree_arrows.gif" />
+    <Content Include="JS\themes\default\images\tree_checkbox_0.gif" />
+    <Content Include="JS\themes\default\images\tree_checkbox_1.gif" />
+    <Content Include="JS\themes\default\images\tree_checkbox_2.gif" />
+    <Content Include="JS\themes\default\images\tree_dnd_no.png" />
+    <Content Include="JS\themes\default\images\tree_dnd_yes.png" />
+    <Content Include="JS\themes\default\images\tree_file.gif" />
+    <Content Include="JS\themes\default\images\tree_folder.gif" />
+    <Content Include="JS\themes\default\images\tree_folder_open.gif" />
+    <Content Include="JS\themes\default\images\tree_loading.gif" />
+    <Content Include="JS\themes\default\images\validatebox_pointer.gif" />
+    <Content Include="JS\themes\default\images\validatebox_warning.png" />
+    <Content Include="JS\themes\default\layout.css" />
+    <Content Include="JS\themes\default\linkbutton.css" />
+    <Content Include="JS\themes\default\menu.css" />
+    <Content Include="JS\themes\default\menubutton.css" />
+    <Content Include="JS\themes\default\messager.css" />
+    <Content Include="JS\themes\default\pagination.css" />
+    <Content Include="JS\themes\default\panel.css" />
+    <Content Include="JS\themes\default\progressbar.css" />
+    <Content Include="JS\themes\default\propertygrid.css" />
+    <Content Include="JS\themes\default\searchbox.css" />
+    <Content Include="JS\themes\default\spinner.css" />
+    <Content Include="JS\themes\default\splitbutton.css" />
+    <Content Include="JS\themes\default\tabs.css" />
+    <Content Include="JS\themes\default\tree.css" />
+    <Content Include="JS\themes\default\validatebox.css" />
+    <Content Include="JS\themes\default\window.css" />
+    <Content Include="JS\themes\gray\accordion.css" />
+    <Content Include="JS\themes\gray\calendar.css" />
+    <Content Include="JS\themes\gray\combo.css" />
+    <Content Include="JS\themes\gray\combobox.css" />
+    <Content Include="JS\themes\gray\datagrid.css" />
+    <Content Include="JS\themes\gray\datebox.css" />
+    <Content Include="JS\themes\gray\dialog.css" />
+    <Content Include="JS\themes\gray\easyui.css" />
+    <Content Include="JS\themes\gray\images\accordion_collapse.png" />
+    <Content Include="JS\themes\gray\images\accordion_expand.png" />
+    <Content Include="JS\themes\gray\images\blank.gif" />
+    <Content Include="JS\themes\gray\images\button_a_bg.gif" />
+    <Content Include="JS\themes\gray\images\button_plain_hover.png" />
+    <Content Include="JS\themes\gray\images\button_span_bg.gif" />
+    <Content Include="JS\themes\gray\images\calendar_nextmonth.gif" />
+    <Content Include="JS\themes\gray\images\calendar_nextyear.gif" />
+    <Content Include="JS\themes\gray\images\calendar_prevmonth.gif" />
+    <Content Include="JS\themes\gray\images\calendar_prevyear.gif" />
+    <Content Include="JS\themes\gray\images\combo_arrow.gif" />
+    <Content Include="JS\themes\gray\images\datagrid_header_bg.gif" />
+    <Content Include="JS\themes\gray\images\datagrid_row_collapse.gif" />
+    <Content Include="JS\themes\gray\images\datagrid_row_expand.gif" />
+    <Content Include="JS\themes\gray\images\datagrid_sort_asc.gif" />
+    <Content Include="JS\themes\gray\images\datagrid_sort_desc.gif" />
+    <Content Include="JS\themes\gray\images\datagrid_title_bg.gif" />
+    <Content Include="JS\themes\gray\images\datebox_arrow.png" />
+    <Content Include="JS\themes\gray\images\layout_button_down.gif" />
+    <Content Include="JS\themes\gray\images\layout_button_left.gif" />
+    <Content Include="JS\themes\gray\images\layout_button_right.gif" />
+    <Content Include="JS\themes\gray\images\layout_button_up.gif" />
+    <Content Include="JS\themes\gray\images\menu.gif" />
+    <Content Include="JS\themes\gray\images\menu_downarrow.png" />
+    <Content Include="JS\themes\gray\images\menu_rightarrow.png" />
+    <Content Include="JS\themes\gray\images\menu_sep.png" />
+    <Content Include="JS\themes\gray\images\menu_split_downarrow.png" />
+    <Content Include="JS\themes\gray\images\messager_error.gif" />
+    <Content Include="JS\themes\gray\images\messager_info.gif" />
+    <Content Include="JS\themes\gray\images\messager_question.gif" />
+    <Content Include="JS\themes\gray\images\messager_warning.gif" />
+    <Content Include="JS\themes\gray\images\pagination_first.gif" />
+    <Content Include="JS\themes\gray\images\pagination_last.gif" />
+    <Content Include="JS\themes\gray\images\pagination_load.png" />
+    <Content Include="JS\themes\gray\images\pagination_loading.gif" />
+    <Content Include="JS\themes\gray\images\pagination_next.gif" />
+    <Content Include="JS\themes\gray\images\pagination_prev.gif" />
+    <Content Include="JS\themes\gray\images\panel_loading.gif" />
+    <Content Include="JS\themes\gray\images\panel_title.gif" />
+    <Content Include="JS\themes\gray\images\panel_tools.gif" />
+    <Content Include="JS\themes\gray\images\panel_tool_collapse.gif" />
+    <Content Include="JS\themes\gray\images\panel_tool_expand.gif" />
+    <Content Include="JS\themes\gray\images\searchbox_button.png" />
+    <Content Include="JS\themes\gray\images\spinner_arrow_down.gif" />
+    <Content Include="JS\themes\gray\images\spinner_arrow_up.gif" />
+    <Content Include="JS\themes\gray\images\tabs_close.gif" />
+    <Content Include="JS\themes\gray\images\tabs_enabled.gif" />
+    <Content Include="JS\themes\gray\images\tabs_leftarrow.png" />
+    <Content Include="JS\themes\gray\images\tabs_rightarrow.png" />
+    <Content Include="JS\themes\gray\images\tree_arrows.gif" />
+    <Content Include="JS\themes\gray\images\tree_checkbox_0.gif" />
+    <Content Include="JS\themes\gray\images\tree_checkbox_1.gif" />
+    <Content Include="JS\themes\gray\images\tree_checkbox_2.gif" />
+    <Content Include="JS\themes\gray\images\tree_dnd_no.png" />
+    <Content Include="JS\themes\gray\images\tree_dnd_yes.png" />
+    <Content Include="JS\themes\gray\images\tree_file.gif" />
+    <Content Include="JS\themes\gray\images\tree_folder.gif" />
+    <Content Include="JS\themes\gray\images\tree_folder_open.gif" />
+    <Content Include="JS\themes\gray\images\tree_loading.gif" />
+    <Content Include="JS\themes\gray\images\validatebox_pointer.gif" />
+    <Content Include="JS\themes\gray\images\validatebox_warning.png" />
+    <Content Include="JS\themes\gray\layout.css" />
+    <Content Include="JS\themes\gray\linkbutton.css" />
+    <Content Include="JS\themes\gray\menu.css" />
+    <Content Include="JS\themes\gray\menubutton.css" />
+    <Content Include="JS\themes\gray\messager.css" />
+    <Content Include="JS\themes\gray\pagination.css" />
+    <Content Include="JS\themes\gray\panel.css" />
+    <Content Include="JS\themes\gray\progressbar.css" />
+    <Content Include="JS\themes\gray\propertygrid.css" />
+    <Content Include="JS\themes\gray\searchbox.css" />
+    <Content Include="JS\themes\gray\spinner.css" />
+    <Content Include="JS\themes\gray\splitbutton.css" />
+    <Content Include="JS\themes\gray\tabs.css" />
+    <Content Include="JS\themes\gray\tree.css" />
+    <Content Include="JS\themes\gray\validatebox.css" />
+    <Content Include="JS\themes\gray\window.css" />
+    <Content Include="JS\themes\icon.css" />
+    <Content Include="JS\themes\icons\add.png" />
+    <Content Include="JS\themes\icons\addnew.gif" />
+    <Content Include="JS\themes\icons\all.gif" />
+    <Content Include="JS\themes\icons\app.gif" />
+    <Content Include="JS\themes\icons\aremove.png" />
+    <Content Include="JS\themes\icons\arrow.gif" />
+    <Content Include="JS\themes\icons\back.png" />
+    <Content Include="JS\themes\icons\blank.gif" />
+    <Content Include="JS\themes\icons\cache.gif" />
+    <Content Include="JS\themes\icons\calendar.png" />
+    <Content Include="JS\themes\icons\calendar1.gif" />
+    <Content Include="JS\themes\icons\cancel.png" />
+    <Content Include="JS\themes\icons\color.gif" />
+    <Content Include="JS\themes\icons\com.gif" />
+    <Content Include="JS\themes\icons\cut.png" />
+    <Content Include="JS\themes\icons\data1.gif" />
+    <Content Include="JS\themes\icons\data2.gif" />
+    <Content Include="JS\themes\icons\data3.gif" />
+    <Content Include="JS\themes\icons\data4.gif" />
+    <Content Include="JS\themes\icons\data5.gif" />
+    <Content Include="JS\themes\icons\data6.gif" />
+    <Content Include="JS\themes\icons\db.gif" />
+    <Content Include="JS\themes\icons\directory.png" />
+    <Content Include="JS\themes\icons\do.gif" />
+    <Content Include="JS\themes\icons\doc.gif" />
+    <Content Include="JS\themes\icons\download.gif" />
+    <Content Include="JS\themes\icons\et.gif" />
+    <Content Include="JS\themes\icons\ett.gif" />
+    <Content Include="JS\themes\icons\exam.gif" />
+    <Content Include="JS\themes\icons\file.png" />
+    <Content Include="JS\themes\icons\files.gif" />
+    <Content Include="JS\themes\icons\filesave.png" />
+    <Content Include="JS\themes\icons\folder.gif" />
+    <Content Include="JS\themes\icons\framework.gif" />
+    <Content Include="JS\themes\icons\globe.png" />
+    <Content Include="JS\themes\icons\guestbook.gif" />
+    <Content Include="JS\themes\icons\help.png" />
+    <Content Include="JS\themes\icons\home.gif" />
+    <Content Include="JS\themes\icons\home1.gif" />
+    <Content Include="JS\themes\icons\html.gif" />
+    <Content Include="JS\themes\icons\img.gif" />
+    <Content Include="JS\themes\icons\import.gif" />
+    <Content Include="JS\themes\icons\insert.gif" />
+    <Content Include="JS\themes\icons\jingpin.gif" />
+    <Content Include="JS\themes\icons\link.gif" />
+    <Content Include="JS\themes\icons\log.gif" />
+    <Content Include="JS\themes\icons\mail.gif" />
+    <Content Include="JS\themes\icons\mail1.gif" />
+    <Content Include="JS\themes\icons\mdb.gif" />
+    <Content Include="JS\themes\icons\mde.gif" />
+    <Content Include="JS\themes\icons\new1.gif" />
+    <Content Include="JS\themes\icons\new2.gif" />
+    <Content Include="JS\themes\icons\new3.gif" />
+    <Content Include="JS\themes\icons\new4.gif" />
+    <Content Include="JS\themes\icons\no.png" />
+    <Content Include="JS\themes\icons\notice.gif" />
+    <Content Include="JS\themes\icons\ok.png" />
+    <Content Include="JS\themes\icons\other.gif" />
+    <Content Include="JS\themes\icons\part.gif" />
+    <Content Include="JS\themes\icons\password.gif" />
+    <Content Include="JS\themes\icons\paste.gif" />
+    <Content Include="JS\themes\icons\pc.gif" />
+    <Content Include="JS\themes\icons\pen.gif" />
+    <Content Include="JS\themes\icons\pen1.gif" />
+    <Content Include="JS\themes\icons\pencil.png" />
+    <Content Include="JS\themes\icons\phone.gif" />
+    <Content Include="JS\themes\icons\photo.gif" />
+    <Content Include="JS\themes\icons\ppt.gif" />
+    <Content Include="JS\themes\icons\preview.gif" />
+    <Content Include="JS\themes\icons\print.png" />
+    <Content Include="JS\themes\icons\pub.gif" />
+    <Content Include="JS\themes\icons\redo.png" />
+    <Content Include="JS\themes\icons\reload.png" />
+    <Content Include="JS\themes\icons\rename.gif" />
+    <Content Include="JS\themes\icons\rtf.gif" />
+    <Content Include="JS\themes\icons\search.gif" />
+    <Content Include="JS\themes\icons\search1.png" />
+    <Content Include="JS\themes\icons\settings.gif" />
+    <Content Include="JS\themes\icons\sharedir.gif" />
+    <Content Include="JS\themes\icons\sitemap.gif" />
+    <Content Include="JS\themes\icons\sum.png" />
+    <Content Include="JS\themes\icons\sys.gif" />
+    <Content Include="JS\themes\icons\system.gif" />
+    <Content Include="JS\themes\icons\table.gif" />
+    <Content Include="JS\themes\icons\task.gif" />
+    <Content Include="JS\themes\icons\template.gif" />
+    <Content Include="JS\themes\icons\theme.png" />
+    <Content Include="JS\themes\icons\tip.png" />
+    <Content Include="JS\themes\icons\txt.gif" />
+    <Content Include="JS\themes\icons\undo.png" />
+    <Content Include="JS\themes\icons\upload.gif" />
+    <Content Include="JS\themes\icons\url.gif" />
+    <Content Include="JS\themes\icons\user.gif" />
+    <Content Include="JS\themes\icons\user1.gif" />
+    <Content Include="JS\themes\icons\user2.gif" />
+    <Content Include="JS\themes\icons\userclass.gif" />
+    <Content Include="JS\themes\icons\usergrade.gif" />
+    <Content Include="JS\themes\icons\usergroup.gif" />
+    <Content Include="JS\themes\icons\users.png" />
+    <Content Include="JS\themes\icons\users2.gif" />
+    <Content Include="JS\themes\icons\vss.gif" />
+    <Content Include="JS\validator.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ashx\LoginHandler.ashx.cs">
+      <DependentUpon>LoginHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="CheckCode.ashx.cs">
+      <DependentUpon>CheckCode.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Class\User.cs" />
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IsLogin.ascx.cs">
+      <DependentUpon>IsLogin.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IsLogin.ascx.designer.cs">
+      <DependentUpon>IsLogin.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CheckCode.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ashx\LoginHandler.ashx" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>2849</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
