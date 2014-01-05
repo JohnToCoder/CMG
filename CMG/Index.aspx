@@ -12,36 +12,100 @@
     <script src="JS/jquery-ui.js" type="text/javascript"></script>
     <script src="JS/jquery.easyui.min.js" type="text/javascript"></script>
     <script src="JS/validator.js" type="text/javascript"></script>
-    <script src="JS/index.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        function getPX() {
-            document.getElementById("px").value = window.screen.width + "?" + window.screen.height;
-        }  
-     </script> 
+    <script src="JS/index.js" type="text/javascript"></script>    
+     <script type="text/javascript">
+         $(window).resize(function () {
+             var width = $(window).width() - 10;
+             var height = $(window).height() - 10;
+             $('#cc').width(width);
+             $('#cc').height(height);
+             $('#cc').layout();   //窗口改变大小时加载  
+         });
+    </script>
+    <style type="text/css">
+        .style1
+        {
+            height: 119px;
+        }
+    </style>
 </head>
-<body onload='getPX()'>
+<body >
     <noscript>
         <div style=" position:absolute; z-index:100000; height:2046px;top:0px;left:0px; width:100%; background:white; text-align:center;">
             <img src="themes/default/images/noscript.gif" alt='抱歉，请开启脚本支持！' />
         </div>
     </noscript>       
    
-    <form id="form1" runat="server" onsubmit="return Validator.Validate(this.form,1);">
-    
-    <div class="easyui-layout" style="width:700px;height:350px;">
-        <div data-options="region:'north'" style="height:50px"></div>
-        <div data-options="region:'south',split:true" style="height:50px;"></div>
-        <div data-options="region:'east',split:true" title="East" style="width:180px;"></div>
-        <div data-options="region:'west',split:true" title="West" style="width:100px;"></div>
-        <div data-options="region:'center',iconCls:'icon-ok'" title="Center">
-            <div class="easyui-layout" data-options="fit:true">
-                <div data-options="region:'north',split:true,border:false" style="height:50px"></div>
-                <div data-options="region:'west',split:true,border:false" style="width:100px"></div>
-                <div data-options="region:'center',border:false"></div>
-            </div>
-        </div>
+    <form id="form1" runat="server" >
+    <div id="cc" runat=server style=" width:100%; height:100%">
+                <table align=center border=0 cellspacing=0 cellpadding=0 >
+            <tbody>
+                <tr>
+                    <td colspan=3  background=images/login_bg.jpg class="style1">
+                    </td>
+                </tr>
+               
+                <tr>
+                    <td background='images/index9.jpg' height=320 valign=top width=280 ></td>
+                    <td class=cc05></td>
+                    <td valign=top style="border-left:dotted thin #cccccc;">
+                        <table class="cc06"  border=0 cellpadding=0 cellspacing=0>
+                            <tbody>
+                                <tr>
+                                    <td  height=30 colspan=3><label id="labErrorPN" runat=server visible=false style=" color:Red; font-style:oblique; font-size:medium;"> 输入的用户名或者密码错误！</label></td>
+                                </tr>
+                                <tr>
+                                    <td height=30 width=53>用户名：</td>
+                                    <td valign="middle" >
+                                        <input runat=server name="txtUserName" value='' style="color:#ff0000; font-weight:bold; padding-left:5px; width:125px; height:25px; vertical-align:middle;" type="text" id=txtUserName dataType="Require" msg="用户名不能为空" maxLength=16 />
+                                    </td>
+                                    <td >   
+                                        <img alt='' src="images/ico_user.gif" width=19 height=18 />
+                                    </td>               
+                                </tr>
+                                <tr>
+                                    <td height=30 width=53>密    码：</td>
+                                    <td  >
+                                        <input runat=server name="txtPassWord" value='' style="color:#ff0000; font-weight:bold; padding-left:5px; width:125px; height:25px; vertical-align:middle;" type=password id=txtPassWord dataType="Require" msg="密码不能为空" maxLength=16 />
+                                    </td>
+                                    <td >   
+                                        <img alt='' src="images/luck.gif" width=19 height=18 />
+                                    </td> 
+                                </tr>                         
+                                <tr>
+                                    <td height=30 width=53>验证码：</td>
+                                    <td  >                                        
+                                        <input runat=server name="txtCode" value='' style="color:#ff0000; font-weight:bold; padding-left:5px; width:125px; height:25px; vertical-align:middle;" type="text" title="看不清楚?点击图片切换" id="txtCode" maxLength=4  dataType="Require" msg="验证码不能为空" />&nbsp;                                                                
+                                     </td>
+                                     <td >                           
+                                        <img alt='看不清，换一张' id="vcodoImg" src="about:blank" onerror="this.onerror=null;this.src='CheckCode.ashx?abc='+Math.random()" onclick="this.src='CheckCode.ashx?abc='+Math.random()" />
+                                    </td>   
+                                </tr>                             
+                                <tr>
+                                    <td height=30></td>
+                                    <td >
+                                        <asp:Button runat=server class="button" ID="btnLogin" Text="登录" OnClick="Login_Btn" OnClientClick="return Validator.Validate(this.form,1);" />
+                                    <td ><input id="chkRemeber" type=checkbox name="chkRemember" style="margin-left:8px; vertical-align:middle;"/><label for="chkRemember" style="vertical-align:middle;">记住本次登录</label>
+                                    </td>                                                                
+                                </tr>
+                                <tr>
+                                    <td ></td>
+                                    <td colspan=2> 
+                                        <a id="linkSign" href="#" onclick="">如果没有账号，点击这里注册</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan=3 height=40  background=images/login_bg.jpg>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
     </div>
-   
     </form>
 </body>
 </html>
