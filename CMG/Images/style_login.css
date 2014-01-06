@@ -1,6 +1,6 @@
 BODY {
 	 padding: 0px;
-    background-color:#ffffff;SCROLLBAR-ARROW-COLOR: #000000; SCROLLBAR-FACE-COLOR: #f6f6f6; MARGIN: 0px; SCROLLBAR-DARKSHADOW-COLOR: #ffffff; SCROLLBAR-HIGHLIGHT-COLOR: #ffffff; SCROLLBAR-SHADOW-COLOR: #cccccc; FONT-SIZE: 12px; SCROLLBAR-TRACK-COLOR: #efefef; SCROLLBAR-3DLIGHT-COLOR: #cccccc; height: 500px;
+    background-color:#ffffff;SCROLLBAR-ARROW-COLOR: #000000; SCROLLBAR-FACE-COLOR: #f6f6f6; MARGIN: 0px; SCROLLBAR-DARKSHADOW-COLOR: #ffffff; SCROLLBAR-HIGHLIGHT-COLOR: #ffffff; SCROLLBAR-SHADOW-COLOR: #cccccc; FONT-SIZE: 12px; SCROLLBAR-TRACK-COLOR: #efefef; SCROLLBAR-3DLIGHT-COLOR: #cccccc; height: 696px;
 }
 TABLE {
 	padding: 0px;
@@ -175,7 +175,7 @@ A:hover {
 	BACKGROUND: url(index_6.gif) no-repeat
 }
 .cc06 {
-	MARGIN: 80px 0px 0px 40px; 
+	MARGIN: 9px 0px 0px 0px; 
 COLOR: #00398d;
     width: 328px;
 }

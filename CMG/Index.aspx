@@ -7,6 +7,7 @@
     <title>首页</title>
     <link href="JS/themes/default/easyui.css" rel="stylesheet" type="text/css" />
     <link href="JS/themes/icon.css" rel="stylesheet" type="text/css" />
+    <link href="Images/style_login.css" rel="stylesheet" type="text/css" />
     <script src="JS/jquery-1.10.2.min.js" type="text/javascript"></script>
     <script src="JS/jquery.min.js" type="text/javascript"></script>
     <script src="JS/jquery-ui.js" type="text/javascript"></script>
@@ -27,6 +28,26 @@
         {
             height: 119px;
         }
+        .style2
+        {
+            width: 87px;
+        }
+        .style3
+        {
+            width: 129px;
+        }
+        .style4
+        {
+            width: 99px;
+        }
+        .style5
+        {
+            width: 562px;
+        }
+        .style6
+        {
+            width: 398px;
+        }
     </style>
 </head>
 <body >
@@ -37,7 +58,7 @@
     </noscript>       
    
     <form id="form1" runat="server" >
-    <div id="cc" runat=server style=" width:100%; height:100%">
+    <div id="cc" runat=server style=" width:100%; height:134%">
                 <table align=center border=0 cellspacing=0 cellpadding=0 >
             <tbody>
                 <tr>
@@ -46,57 +67,62 @@
                 </tr>
                
                 <tr>
-                    <td background='images/index9.jpg' height=320 valign=top width=280 ></td>
-                    <td class=cc05></td>
-                    <td valign=top style="border-left:dotted thin #cccccc;">
+                    <td valign=top style="border-left:dotted thin #cccccc;" class="style6">
                         <table class="cc06"  border=0 cellpadding=0 cellspacing=0>
                             <tbody>
                                 <tr>
-                                    <td  height=30 colspan=3><label id="labErrorPN" runat=server visible=false style=" color:Red; font-style:oblique; font-size:medium;"> 输入的用户名或者密码错误！</label></td>
+                                    <td  height=30 colspan=3><label id="Label1" runat=server visible=false style=" color:Red; font-style:oblique; font-size:medium;"> 输入的用户名或者密码错误！</label></td>
                                 </tr>
                                 <tr>
-                                    <td height=30 width=53>用户名：</td>
-                                    <td valign="middle" >
-                                        <input runat=server name="txtUserName" value='' style="color:#ff0000; font-weight:bold; padding-left:5px; width:125px; height:25px; vertical-align:middle;" type="text" id=txtUserName dataType="Require" msg="用户名不能为空" maxLength=16 />
+                                    <td height=30 class="style2">用户名：</td>
+                                    <td valign="middle" class="style3" >
+                                        <input runat=server name="txtUserName" value='' style="color:#ff0000; font-weight:bold; padding-left:5px; width:125px; height:25px; vertical-align:middle;" type="text" id=Text1 dataType="Require" msg="用户名不能为空" maxLength=16 />
                                     </td>
-                                    <td >   
+                                    <td class="style4" >   
                                         <img alt='' src="images/ico_user.gif" width=19 height=18 />
                                     </td>               
                                 </tr>
                                 <tr>
-                                    <td height=30 width=53>密    码：</td>
-                                    <td  >
-                                        <input runat=server name="txtPassWord" value='' style="color:#ff0000; font-weight:bold; padding-left:5px; width:125px; height:25px; vertical-align:middle;" type=password id=txtPassWord dataType="Require" msg="密码不能为空" maxLength=16 />
+                                    <td height=30 class="style2">密    码：</td>
+                                    <td class="style3"  >
+                                        <input runat=server name="txtPassWord" value='' style="color:#ff0000; font-weight:bold; padding-left:5px; width:125px; height:25px; vertical-align:middle;" type=password id=Password1 dataType="Require" msg="密码不能为空" maxLength=16 />
                                     </td>
-                                    <td >   
+                                    <td class="style4" >   
                                         <img alt='' src="images/luck.gif" width=19 height=18 />
                                     </td> 
                                 </tr>                         
                                 <tr>
-                                    <td height=30 width=53>验证码：</td>
-                                    <td  >                                        
-                                        <input runat=server name="txtCode" value='' style="color:#ff0000; font-weight:bold; padding-left:5px; width:125px; height:25px; vertical-align:middle;" type="text" title="看不清楚?点击图片切换" id="txtCode" maxLength=4  dataType="Require" msg="验证码不能为空" />&nbsp;                                                                
+                                    <td height=30 class="style2">验证码：</td>
+                                    <td class="style3"  >                                        
+                                        <input runat=server name="txtCode" value='' style="color:#ff0000; font-weight:bold; padding-left:5px; width:125px; height:25px; vertical-align:middle;" type="text" title="看不清楚?点击图片切换" id="Text2" maxLength=4  dataType="Require" msg="验证码不能为空" />&nbsp;                                                                
                                      </td>
-                                     <td >                           
-                                        <img alt='看不清，换一张' id="vcodoImg" src="about:blank" onerror="this.onerror=null;this.src='CheckCode.ashx?abc='+Math.random()" onclick="this.src='CheckCode.ashx?abc='+Math.random()" />
+                                     <td class="style4" >                           
+                                        <img alt='看不清，换一张' id="Img1" src="about:blank" onerror="this.onerror=null;this.src='CheckCode.ashx?abc='+Math.random()" onclick="this.src='CheckCode.ashx?abc='+Math.random()" />
                                     </td>   
                                 </tr>                             
                                 <tr>
-                                    <td height=30></td>
-                                    <td >
-                                        <asp:Button runat=server class="button" ID="btnLogin" Text="登录" OnClick="Login_Btn" OnClientClick="return Validator.Validate(this.form,1);" />
-                                    <td ><input id="chkRemeber" type=checkbox name="chkRemember" style="margin-left:8px; vertical-align:middle;"/><label for="chkRemember" style="vertical-align:middle;">记住本次登录</label>
+                                    
+                                    <td colspan=3>
+                                        <asp:Button runat=server class="button" ID="Button1" Text="登录" 
+                                            OnClientClick="return Validator.Validate(this.form,1);" 
+                                            Width="60px" />
+                                        <input id="Checkbox1" type=checkbox name="chkRemember" 
+                                            style="margin-left:40px; vertical-align:middle;"/><label for="chkRemember" style="vertical-align:middle;">记住本次登录</label>
                                     </td>                                                                
                                 </tr>
                                 <tr>
-                                    <td ></td>
+                                    <td class="style2" ></td>
                                     <td colspan=2> 
-                                        <a id="linkSign" href="#" onclick="">如果没有账号，点击这里注册</a>
+                                        <a id="A1" href="#" onclick="">如果没有账号，点击这里注册</a>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
-                    </td>
+
+                    </td>                    
+                    <td class=cc05></td>
+                    <td height=500 valign=top class="style5" ></td>
+                   
                 </tr>
                 <tr>
                     <td colspan=3 height=40  background=images/login_bg.jpg>
