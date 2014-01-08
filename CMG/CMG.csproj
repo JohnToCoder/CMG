@@ -230,6 +230,7 @@
     <Content Include="JS\jquery-1.4.1.min.js" />
     <Content Include="JS\jquery-ui.js" />
     <Content Include="JS\jquery.easyui.min.js" />
+    <Content Include="JS\jquery.md5.js" />
     <Content Include="JS\jquery.min.js" />
     <Content Include="JS\login.js" />
     <Content Include="JS\MD5.js" />
