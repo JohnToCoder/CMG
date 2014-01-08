@@ -110,3 +110,7 @@
 .icon-pub{ background:url('icons/pub.gif') no-repeat; }
 .icon-com{ background:url('icons/com.gif') no-repeat; }
 
+.button {background:url(submitMiniGreen.gif) #A6D465 repeat-x;height:23px;width:80px;border:1px solid #A6D465;*border:1px solid ButtonFace;}
+.button:hover {background:url(submitMiniGreenOver.gif) #DD9F1D repeat-x;}
+
+

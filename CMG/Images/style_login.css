@@ -1,6 +1,6 @@
 BODY {
 	 padding: 0px;
-    background-color:#ffffff;SCROLLBAR-ARROW-COLOR: #000000; SCROLLBAR-FACE-COLOR: #f6f6f6; MARGIN: 0px; SCROLLBAR-DARKSHADOW-COLOR: #ffffff; SCROLLBAR-HIGHLIGHT-COLOR: #ffffff; SCROLLBAR-SHADOW-COLOR: #cccccc; FONT-SIZE: 12px; SCROLLBAR-TRACK-COLOR: #efefef; SCROLLBAR-3DLIGHT-COLOR: #cccccc; height: 696px;
+    background-color:#ffffff;SCROLLBAR-ARROW-COLOR: #000000; SCROLLBAR-FACE-COLOR: #f6f6f6; MARGIN: 0px; SCROLLBAR-DARKSHADOW-COLOR: #ffffff; SCROLLBAR-HIGHLIGHT-COLOR: #ffffff; SCROLLBAR-SHADOW-COLOR: #cccccc; FONT-SIZE: 12px; SCROLLBAR-TRACK-COLOR: #efefef; SCROLLBAR-3DLIGHT-COLOR: #cccccc; 
 }
 TABLE {
 	padding: 0px;
@@ -25,7 +25,7 @@ IMG {
 	border-style: none;
     border-color: inherit;
     border-width: 0px;
-    margin-top: 1px;
+    margin-top: 1px;   
 }
 A {
 	COLOR: #0062a0; TEXT-DECORATION: none

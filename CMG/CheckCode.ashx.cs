@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Drawing;
+using CMG;
 
 namespace CMG
 {
@@ -59,7 +60,7 @@ namespace CMG
             if (checkCode == null || checkCode.Trim() == String.Empty)
                 return;
             //(int)Math.Ceiling((checkCode.Length * 12.5)),22
-            System.Drawing.Bitmap image = new System.Drawing.Bitmap(56, 25);
+            System.Drawing.Bitmap image = new System.Drawing.Bitmap(68, 28);
             Graphics g = Graphics.FromImage(image);
 
             try
@@ -82,7 +83,7 @@ namespace CMG
                     g.DrawLine(p, x1, y1, x2, y2);
                 }
 
-                Font font = new System.Drawing.Font("Arial", 14, (System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic));
+                Font font = new System.Drawing.Font("Arial", 18, (System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic));
                 System.Drawing.Drawing2D.LinearGradientBrush brush = new System.Drawing.Drawing2D.LinearGradientBrush(new Rectangle(0, 0, image.Width, image.Height), Color.Blue, System.Drawing.Color.DarkRed, 1.2f, true);
                 g.DrawString(checkCode, font, brush, 1, 1);
 
@@ -111,6 +112,6 @@ namespace CMG
                 image.Dispose();
             }
         }
-    }   
+    }
 
 }

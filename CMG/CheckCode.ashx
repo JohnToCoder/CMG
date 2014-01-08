@@ -1,1 +1,1 @@
-﻿<%@ WebHandler Language="C#" CodeBehind="CheckCode.ashx.cs" Class="TCMgr.CheckCode" %>
+﻿<%@ WebHandler Language="C#" CodeBehind="CheckCode.ashx.cs" Class="CMG.CheckCode" %>
