@@ -1,11 +1,15 @@
 ﻿
 $(document).ready(function () {
     InitDataGrid();
+   
+    $('#btnSearch').bind('click', function () {       
+        getSearchList();
+    });
 });
 var strtxt = "";
 function InitDataGrid() {
     $('#tabNote').datagrid({
-        //fit: true, //自动大小 
+        fit: true, //自动大小 
         //        url:'JS/data.json',   
         rownumbers: true, //行号   
         //loadMsg:'数据装载中......',    
@@ -45,4 +49,12 @@ function titClick(strID) {
     $('#labDate').text(lDate);
     $('#winNote').window('open');
     $('#tabNote').datagrid("reload");
+}
+
+function getSearchList() {
+    alert("chaxun");
+    var strChufa = $('#strChufa').combobox('getValue').toString();
+    var strMudi = $('#strMudi').combobox('getValue').toString();
+    var strTime = $('#strDate').datetimebox('getValue').toString();
+    alert(strChufa + strMudi+strTime);
 }

@@ -37,9 +37,19 @@
         td {  
             border: 2px solid #B1CDE3;             
             font-size:12px;  
-            padding: 3px 3px 3px 8px;  
+            padding: 1px 1px 1px 1px;  
             color: #4f6b72;  
-        }               
+        }     
+                          
+        #strChufa
+        {
+            width: 90px;
+        }
+        #strMudi
+        {
+            width: 90px;
+        }
+      
                     
     </style>  
 </head>
@@ -57,16 +67,16 @@
             
                 <tr>
                     <td colspan=3 align=right style=" background-image:url('images/login_bg.jpg'); background-repeat:repeat; height:120px;">
-                        
+                        <img alt="标题" src="Images/biaoti.png" style="margin-right:140px;"/>
                         <img alt="二维码" src="Images/erweima.png" style= "height:120px; width:120px; margin-right:20px" />
                     </td>
                 </tr>
                 <tr> 
                     <td colspan=3 align=right style=" background-image:url('images/login_bg.jpg');background-repeat:repeat; height:30px" >
-                        <a href="#" class="easyui-linkbutton" data-options="toggle:true">首    页</a>                       
-                        <a href="#" class="easyui-linkbutton" data-options="toggle:true">个人资料</a>
-                        <a href="#" class="easyui-linkbutton" data-options="toggle:true">联系我们</a>
-                        <a href="#" class="easyui-linkbutton" data-options="toggle:true">帮    助</a>
+                        <a href="javascript:void(0)" class="easyui-linkbutton" data-options="toggle:true">首    页</a>                       
+                        <a href="javascript:void(0)" class="easyui-linkbutton" data-options="toggle:true">个人资料</a>
+                        <a href="javascript:void(0)" class="easyui-linkbutton" data-options="toggle:true">联系我们</a>
+                        <a href="javascript:void(0)" class="easyui-linkbutton" data-options="toggle:true">帮    助</a>
                     </td>
                 </tr>
                 <tr>
@@ -119,7 +129,19 @@
                             </tbody>
                         </table>
                     </td>
-                    <td rowspan=2 ></td>
+                    <td rowspan=2 >
+                        <div id="Search" align=left style="width:560px;height:30px;">
+                            <label >出发地：</label>
+                            <input class="easyui-combobox" id="strChufa" name="出发地" data-options="valueField:'staID',textField:'staName',url:'ashx/getStation.ashx'">
+                            <label >目的地：</label>
+                            <input class="easyui-combobox" id="strMudi" name="目的地" data-options="valueField:'staID',textField:'staName',url:'ashx/getStation.ashx'">
+                            <label >日期：</label>
+                            <input class="easyui-datetimebox" id="strDate" data-options="required:true,showSeconds:false" style="width:150px">
+                            <a id="btnSearch" href="#" class="easyui-linkbutton" data-options="toggle:true">查找</a>
+                        </div>
+                        <div id="listSearch" style="width:560px;height:400px">
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td style="height:240px;"> 
@@ -137,7 +159,7 @@
      </div>
      <div id="winNote" class="easyui-window" title="通知" 
         data-options="iconCls:'icon-save',closed:true," 
-        style="width:400px; height:360px; padding:0px;" >
+        style="width:400px; height:365px; padding:0px;" >
         <div class="easyui-layout" data-options="fit:true">
             <div data-options="region:'center'" style="padding:0px;">
                 <table style="width:100%; height:300px">
