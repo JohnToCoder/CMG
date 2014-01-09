@@ -17,7 +17,7 @@ namespace CMG.ashx
 
         public void ProcessRequest(HttpContext context)
         {
-            string json = "{\"total\": ";
+            string notelist = "<div id=\"accordion\">";
             string strSQL = "select ID,Title,Note,CreatDate,Creator from dbo.tabNote ";
             string strDataConn = ConfigurationManager.ConnectionStrings["SQLDataConnStr"].ConnectionString;
             SqlConnection dataConn = new SqlConnection(strDataConn);
@@ -27,19 +27,19 @@ namespace CMG.ashx
             DataSet ds = new DataSet();
             da.Fill(ds);
             DataTable dt = ds.Tables[0];
-            json += "20" + ",\"rows\":[";
+           
             foreach (DataRow row in dt.Rows)
             {
-                json += "{\"ID\":\"" + row["ID"].ToString() + "\",";
-                json += "\"Title\":\"" + row["Title"].ToString() + "\",";
-                json += "\"Note\":\"" + row["Note"].ToString() + "\",";
-                json += "\"CreatDate\":\"" + row["CreatDate"].ToString() + "\",";
-                json += "\"Creator\":\"" + row["Creator"].ToString() + "\"},";
+                
+                notelist += " <h3 >" + row["Title"].ToString() + "</h3>";
+                notelist += "<div><p>" + row["Note"].ToString() + "</p>";
+                notelist += "<p>" + row["CreatDate"].ToString() + "</p>";
+                notelist += "<p>" + row["Creator"].ToString() + "</p> </div>";
             }
-            json = json.Remove(json.LastIndexOf(','), 1);
-            json += "]}";
-            context.Response.ContentType = "application/json";
-            context.Response.Write(json);
+            notelist += "</div>";
+            notelist += "<script type=\"text/javascript\"> $(function () { $(\"#accordion\").accordion();});</script>";
+            context.Response.ContentType = "text/plain";
+            context.Response.Write(notelist);
             context.Response.End();            
         }
 

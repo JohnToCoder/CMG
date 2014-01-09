@@ -6,10 +6,8 @@
 <head runat="server">
     <title>首页</title>
     <link href="JS/themes/default/easyui.css" rel="stylesheet" type="text/css" />
-    <link href="JS/themes/icon.css" rel="stylesheet" type="text/css" />   
-    <script src="JS/jquery-1.10.2.min.js" type="text/javascript"></script>
-    <script src="JS/jquery.min.js" type="text/javascript"></script>
-    <script src="JS/jquery-ui.js" type="text/javascript"></script>
+    <link href="JS/themes/icon.css" rel="stylesheet" type="text/css" />     
+    <script src="JS/jquery-1.10.2.min.js" type="text/javascript"></script>  
     <script src="JS/jquery.easyui.min.js" type="text/javascript"></script>
     <script src="JS/jquery.md5.js" type="text/javascript"></script>
     <script src="JS/validator.js" type="text/javascript"></script>
@@ -136,7 +134,7 @@
                             <label >目的地：</label>
                             <input class="easyui-combobox" id="strMudi" name="目的地" data-options="valueField:'staID',textField:'staName',url:'ashx/getStation.ashx'">
                             <label >日期：</label>
-                            <input class="easyui-datetimebox" id="strDate" data-options="required:true,showSeconds:false" style="width:150px">
+                            <input class="easyui-datetimebox" id="strDate" data-options="required:true,showSeconds:false" value="1/1/2014 00:00" style="width:150px">
                             <a id="btnSearch" href="#" class="easyui-linkbutton" data-options="toggle:true">查找</a>
                         </div>
                         <div id="listSearch" style="width:560px;height:400px">
@@ -145,9 +143,9 @@
                 </tr>
                 <tr>
                     <td style="height:240px;"> 
-                        <div id="note" class="easyui-panel" title="通知" style="padding:0px;"  data-options="fit:true,iconCls:'icon-save',collapsible:true,">
-                            <table id="tabNote"></table>
-                        </div>
+                        <div id="note" class="easyui-panel" title="通知" style="padding:5px;"  data-options="fit:true,iconCls:'icon-save',collapsible:true,">
+                            <iframe id="subFrameIns" name="subFrameIns" frameborder="0" src="../Note.aspx" style="width: 100%; height: 100%;"></iframe>
+                         </div>
                     </td>
                 </tr>
                 <tr>
@@ -175,7 +173,7 @@
                 </table>
             </div>
             <div data-options="region:'south',border:false" style="text-align:right;">                
-                <a class="easyui-linkbutton"  href="javascript:void(0)" onclick="$('#winNote').window('close')">关闭</a>
+                 <a class="easyui-linkbutton" data-options="iconCls:'icon-cancel'" href="javascript:void(0)" onclick="$('#winNote').window('close')">关闭</a>
             </div>
         </div>
     </div>
