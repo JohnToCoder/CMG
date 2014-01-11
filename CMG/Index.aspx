@@ -138,6 +138,7 @@
                             <a id="btnSearch" href="#" class="easyui-linkbutton" data-options="toggle:true">查找</a>
                         </div>
                         <div id="listSearch" style="width:560px;height:400px">
+                            <table id="listdg"></table>
                         </div>
                     </td>
                 </tr>

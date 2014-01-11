@@ -1,6 +1,6 @@
 ﻿
 $(function () {
-    InitDataGrid();
+    InitDataGrid();  
     InitNote();
     $('#btnSearch').bind('click', function () {
         getSearchList();
@@ -16,7 +16,30 @@ function InitNote() {
     })
     $("#notelist").accordion();    
 }
-
+function InitListDG() {
+    $('#listdg').datagrid({
+        fit: true, //自动大小   
+        rownumbers: true, //行号   
+        loadMsg: '数据装载中......',
+        singleSelect: true, //单行选取  
+        pagination: false, //显示分页 
+        columns: [[
+        { field: 'ID', title: 'ID', hidden: true, width: 20 },
+        { field: 'CheID', title: '车次',  width: 20 },
+        { field: 'ChufaName', title: '出发地',width: 60 },
+        { field: 'ChufaID', title: 'ChufaID', hidden: true, width: 20 },
+        { field: 'MudiName', title: '出发地', width: 60 },
+        { field: 'MudiID', title: 'MudiID', hidden: true, width: 20 },
+        { field: 'Piaoshu', title: '余票', align: 'left', width: 40 },
+        { field: 'Time', title: '时间', align: 'left', width: 100 }
+        ]],
+        fitColumns: true
+    });
+    $.post('ashx/getCheCi.ashx',
+        function (data) {
+            $('#listdg').datagrid("loadData", data);
+        }, 'json');
+}
 var strtxt = "";
 function InitDataGrid() {
     $('#dg').datagrid({
@@ -43,8 +66,7 @@ function InitDataGrid() {
     $.post('ashx/getNote.ashx',
         function (data) {
             $('#dg').datagrid("loadData", data);
-        }, 'json');
- 
+        }, 'json'); 
 }
 
 function titClick(strID) {
