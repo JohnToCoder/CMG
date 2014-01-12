@@ -1,77 +1,94 @@
 ﻿
-$(function () {
-    InitDataGrid();
-    InitNote();
+$(document).ready(function () {
+   
     $('#btnSearch').bind('click', function () {
         getSearchList();
     });
+    $('#btnLogin').bind('click', function () {
+        btnLoginClick();
+    });
 });
 
-function InitNote() {
-    $("#notelist").empty();
-    var notelist = "";
-    $.post('ashx/getNote.ashx', function (data) {        
-        notelist = data;
-        $("#notelist").append(notelist);
-    })
-    $("#notelist").accordion();    
+function btnLoginClick() {
+    var strUserName = $('#txtUserName').val().toString();
+    var strUerPW = $('#txtPassWord').val().toString();
+    var strCode = $('#txtCode').val().toString();
+  
+    $.post("../ashx/LoginHandler.ashx",
+            {
+                'username': escape(strUserName),
+                'pwd': $.md5(strUerPW),
+                'code': escape(strCode)
+            },
+            function (ReturnValue) {
+                if (ReturnValue == "overtime") {
+                    alert('驗證碼已過期');
+                    $('#txtUserName').val('');
+                    $('#txtPassWord').val('');
+                    $('#txtCode').val('');
+                    return;
+                }
+                else if (ReturnValue == "ErrUser") {
+                    alert("用户名或者密码错误！");
+                    return;
+                }
+                else if (ReturnValue == "CodeError") {
+                    alert("验证码错误");
+                    $('#txtUserName').val('');
+                    $('#txtPassWord').val('');
+                    $('#txtCode').val('');
+                    return;                 
+                }
+                else if (ReturnValue == "UserSuccess") {
+                    
+                    location.href = "../TabIndex.aspx";
+                }
+                
+            });
 }
 
-var strtxt = "";
-function InitDataGrid() {
-    $('#dg').datagrid({
-        fit: true, //自动大小 
-        //        url:'JS/data.json',   
-        rownumbers: true, //行号   
-        //loadMsg:'数据装载中......',    
-        singleSelect: true, //单行选取  
-        pagination: false, //显示分页 
-        columns: [[
-        { field: 'ID', title: 'ID', hidden: true, width: 20 },
-        { field: 'Note', title: 'Note', hidden: true, width: 20 },
-        { field: 'CreatDate', title: 'date', hidden: true, width: 20 },
-        { field: 'Creator', title: 'Creator', hidden: true, width: 20 },
-        { field: 'Title', title: '通知', align: 'left', width: 300,
-            formatter: function (value, row, index) {
-                strtxt = row.ID + '|' + row.Title + '|' + row.Note + '|' + row.CreatDate + '|' + row.Creator;
-                //                alert(strtxt);
-                return "<a href=\"javascript:void(0)\" onclick=\"titClick(" + row.ID + ")\">" + row.Title + "</a>";
-            }
-        }]],
-        fitColumns: true
-    });
-    $.post('ashx/getNote.ashx',
-        function (data) {
-            $('#dg').datagrid("loadData", data);
-        }, 'json');
- 
+
+window.onload = function () {
+
+    document.onkeydown = getKey;
 }
 
-function titClick(strID) {
-    //    var tab = window.parent.document.getDocumentById('tabs');
-    //    alert(strID);
-    var lID = strtxt.split('|')[1].toString();
-    var lNote = strtxt.split('|')[2].toString();
-    var lDate = strtxt.split('|')[3].toString();
+function getKey(e) {
+    e = e || window.event;
+    var keycode = e.which ? e.which : e.keyCode;
 
-    $('#labID').text(lID);
-    $('#txtNote').text(lNote);
-    $('#labDate').text(lDate);
-    $('#winNote').window('open');    
+    // alert(keycode);
+
+    if (keycode == 13) {
+        $('#btnLogin').trigger('click');
+    }
 }
-
+function InitListView() {
+    $("#listview").empty();
+    var tabist = "";
+    $.post('ashx/getCheci.ashx', function (data) {        
+        tablist = data;
+        $("#listview").append(tablist);
+    })   
+}
 function getSearchList() {
-    //alert("chaxun");
+
     var strChufa = $('#strChufa').combobox('getValue').toString();
     var strMudi = $('#strMudi').combobox('getValue').toString();
     var strDateTime = $('#strDate').datetimebox('getValue').toString();
     var strDate=strDateTime.split(' ')[0].toString();
     var strYear = strDate.split('/')[2].toString()+'/'+strDate.split('/')[0].toString()+'/'+strDate.split('/')[1].toString();
     var strTime = strDateTime.split(' ')[1].toString();
-    //alert(strChufa+' '+strMudi);
+
     if (strChufa == "" || strMudi == "") {
         $.messager.alert('输入错误', '请选择出发地/目的地！','info');
     } else {
-        alert("chaxun");
+        var iFrameContent = $("#Iframe1").contents();
+        iFrameContent.find("#listview").empty();
+        var searchlist = "";
+        $.post('ashx/getCheci.ashx', {'init':'1','chufa':strChufa,'mudi':strMudi,'date':strYear,'time':strTime}, function (data) {
+            searchlist = data;
+            iFrameContent.find("#listview").append(searchlist);
+        })
     }
 }

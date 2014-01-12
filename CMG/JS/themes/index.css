@@ -1,0 +1,10 @@
+﻿
+.listwiew td
+{
+    border-right:1px dotted #ccc;
+	font-size:12px;
+	font-weight:normal;
+	background:#fafafa repeat-x left bottom;
+	border-bottom:1px dotted #ccc;
+	border-top:1px dotted #fff;
+}

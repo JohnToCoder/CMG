@@ -109,7 +109,7 @@
 .layout-button-down{background:url('images/layout_button_down.gif') no-repeat;}
 .layout-button-left{background:url('images/layout_button_left.gif') no-repeat;}
 .layout-button-right{background:url('images/layout_button_right.gif') no-repeat;}
-.layout-expand{position:absolute;padding:0px 5px;padding:0px;background:#D2E0F2;font-size:1px;cursor:pointer;z-index:1;}
+.layout-expand{position:absolute;padding:0px 0px;padding:0px;background:#D2E0F2;font-size:1px;cursor:pointer;z-index:1;}
 .layout-expand .panel-header{background:transparent;border-bottom-width:0px;}
 .layout-expand .panel-header .panel-tool{top: 5px;}
 .layout-expand .panel-body{overflow:hidden;}

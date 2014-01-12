@@ -47,7 +47,7 @@ namespace CMG
 
                 checkCode += code.ToString();
             }
-
+            //HttpContext.Current.Session.Add("checkcode", checkCode);
             HttpContext.Current.Response.Cookies.Add(new HttpCookie("checkcode", checkCode));
 
             return checkCode;
