@@ -519,6 +519,7 @@
     <Content Include="JS\themes\index.css" />
     <Content Include="JS\validator.js" />
     <Content Include="ListView.aspx" />
+    <Content Include="loginout.aspx" />
     <Content Include="MenuTab.aspx" />
     <Content Include="Note.aspx" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -1139,6 +1140,9 @@
     <Compile Include="Admin\NoteAdmin.aspx.designer.cs">
       <DependentUpon>NoteAdmin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ashx\editCheCi.ashx.cs">
+      <DependentUpon>editCheCi.ashx</DependentUpon>
+    </Compile>
     <Compile Include="ashx\editPersonal.ashx.cs">
       <DependentUpon>editPersonal.ashx</DependentUpon>
     </Compile>
@@ -1178,6 +1182,13 @@
     </Compile>
     <Compile Include="ListView.aspx.designer.cs">
       <DependentUpon>ListView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="loginout.aspx.cs">
+      <DependentUpon>loginout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="loginout.aspx.designer.cs">
+      <DependentUpon>loginout.aspx</DependentUpon>
     </Compile>
     <Compile Include="MenuTab.aspx.cs">
       <DependentUpon>MenuTab.aspx</DependentUpon>
@@ -1233,6 +1244,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ashx\editPersonal.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ashx\editCheCi.ashx" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

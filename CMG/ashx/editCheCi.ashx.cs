@@ -6,13 +6,12 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Web.SessionState;
-
 namespace CMG.ashx
 {
     /// <summary>
-    /// getCheCi 的摘要说明
+    /// editCheCi 的摘要说明
     /// </summary>
-    public class getCheCi : IHttpHandler
+    public class editCheCi : IHttpHandler, IRequiresSessionState
     {
 
         public void ProcessRequest(HttpContext context)
@@ -29,8 +28,8 @@ namespace CMG.ashx
                 string strdate = context.Request["date"].ToString();
                 string strtime = context.Request["time"].ToString();
                 strSQL = "select a.CheID,a.ChufaID,b.staName as ChufaName, a.MudiID,c.staName as MudiName,a.PiaoShu,a.CheDate,a.CheTime from dbo.tabCheCi a left join dbo.tabStation b on a.ChufaID=b.staID left join dbo.tabStation c on a.MudiID= c.staID where ";
-                strSQL += "ChufaID ='"+strchufa+"' and " +"MudiID='"+strmudi+"' or " +"CheDate = '"+strdate+"' or CheTime like '"+strtime+"%'";
-            }   
+                strSQL += "ChufaID ='" + strchufa + "' and " + "MudiID='" + strmudi + "' or " + "CheDate = '" + strdate + "' or CheTime like '" + strtime + "%'";
+            }
             string strDataConn = ConfigurationManager.ConnectionStrings["SQLDataConnStr"].ConnectionString;
             SqlConnection dataConn = new SqlConnection(strDataConn);
 
@@ -47,13 +46,13 @@ namespace CMG.ashx
                 tabList += "<td align=center style=\" width:100px;\">" + row["ChufaName"].ToString() + "</td>";
                 tabList += "<td align=center style=\" width:100px;\">" + row["MudiName"].ToString() + "</td>";
                 tabList += "<td align=center style=\" width:100px;\">" + row["PiaoShu"].ToString() + "</td>";
-                tabList += "<td align=center style=\" width:100px;\">" + row["CheDate"].ToString().Substring(0,10)+ "</td>";
+                tabList += "<td align=center style=\" width:100px;\">" + row["CheDate"].ToString().Substring(0, 10) + "</td>";
                 tabList += "<td align=center style=\" width:100px;\">" + row["CheTime"].ToString() + "</td></tr>";
             }
             tabList += "</table>";
             context.Response.ContentType = "text/plain";
             context.Response.Write(tabList);
-            context.Response.End();            
+            context.Response.End();  
         }
 
         public bool IsReusable

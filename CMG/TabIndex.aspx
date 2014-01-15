@@ -64,9 +64,9 @@
                         <a href="javascript:void(0)" class="easyui-linkbutton" data-options="toggle:true">首    页</a>                       
                         <a href="javascript:void(0)" class="easyui-linkbutton" data-options="toggle:true">个人资料</a>
                         <a href="javascript:void(0)" class="easyui-linkbutton" data-options="toggle:true">联系我们</a>
-                        <a href="javascript:void(0)" class="easyui-linkbutton" data-options="toggle:true">帮    助</a>
+                        <span id="interface_bt1" style=" margin:20px"><a href='loginout.aspx'><img alt="" src="images/logout.gif" onclick="return confirm('确认：您确认要安全注销，退出登录吗？')" border="0" title="安全注销，退出登陆" align=absmiddle/></a></span> 
                     </td>
-                </tr>
+                </tr>  
                 <tr>
                     <td style="width:900px; height:460px"> 
                         <div id="main" runat=server style="width:890px; height:440px">
