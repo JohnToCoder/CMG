@@ -22,22 +22,49 @@ namespace CMG {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// labuid 控件。
+        /// txtuid 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl labuid;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtuid;
         
         /// <summary>
-        /// labuname 控件。
+        /// txtuname 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl labuname;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtuname;
+        
+        /// <summary>
+        /// txtUserType 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtUserType;
+        
+        /// <summary>
+        /// txtTell 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtTell;
+        
+        /// <summary>
+        /// txtEmail 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtEmail;
         
         /// <summary>
         /// txtPassWord 控件。
@@ -49,12 +76,12 @@ namespace CMG {
         protected global::System.Web.UI.HtmlControls.HtmlInputPassword txtPassWord;
         
         /// <summary>
-        /// txtCode 控件。
+        /// txtRePassWord 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtCode;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword txtRePassWord;
     }
 }

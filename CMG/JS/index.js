@@ -1,5 +1,5 @@
 ﻿
-$(document).ready(function () {
+$(function () {
    
     $('#btnSearch').bind('click', function () {
         getSearchList();
@@ -13,8 +13,8 @@ function btnLoginClick() {
     var strUserName = $('#txtUserName').val().toString();
     var strUerPW = $('#txtPassWord').val().toString();
     var strCode = $('#txtCode').val().toString();
-  
-    $.post("../ashx/LoginHandler.ashx",
+
+    $.post("../ashx/LoginHandler.ashx?rdItem="+new Date().getTime(),
             {
                 'username': escape(strUserName),
                 'pwd': $.md5(strUerPW),

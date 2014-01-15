@@ -1139,6 +1139,9 @@
     <Compile Include="Admin\NoteAdmin.aspx.designer.cs">
       <DependentUpon>NoteAdmin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ashx\editPersonal.ashx.cs">
+      <DependentUpon>editPersonal.ashx</DependentUpon>
+    </Compile>
     <Compile Include="ashx\getCheCi.ashx.cs">
       <DependentUpon>getCheCi.ashx</DependentUpon>
     </Compile>
@@ -1228,7 +1231,9 @@
   <ItemGroup>
     <Content Include="ashx\getCheCi.ashx" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="ashx\editPersonal.ashx" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>

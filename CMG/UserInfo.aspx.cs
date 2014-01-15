@@ -11,6 +11,14 @@ namespace CMG
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Page.IsPostBack) {
+                txtuid.Value = Session["UserID"].ToString();
+                txtuname.Value = Session["UserName"].ToString();
+                txtPassWord.Value = Session["UserPW"].ToString();
+                txtUserType.Value = Session["TypeName"].ToString();
+                txtTell.Value = Session["UserTel"].ToString();
+                txtEmail.Value = Session["UserEmail"].ToString();
+            }
 
         }
     }
