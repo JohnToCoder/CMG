@@ -137,7 +137,7 @@
                                 <label >目的地：</label>
                                 <input class="easyui-combobox" id="strMudi" name="目的地" data-options="valueField:'staID',textField:'staName',url:'ashx/getStation.ashx'">
                                 <label >日期：</label>
-                                <input class="easyui-datetimebox" id="strDate" data-options="required:true,showSeconds:false" value="" style="width:120px">
+                                <input class="easyui-datetimebox" id="strDate" data-options="showSeconds:false" value="" style="width:120px">
                                 <a id="btnSearch" href="#" class="easyui-linkbutton" data-options="toggle:true">查找</a>
                             </div>
                             </td></tr>

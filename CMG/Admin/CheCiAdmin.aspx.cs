@@ -15,18 +15,41 @@ namespace CMG.Admin
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack) {
-                string strSQL = "select a.ID,a.CheID,a.ChufaID,b.staName as ChufaName, a.MudiID,c.staName as MudiName,a.PiaoShu,CONVERT(varchar(12) , a.CheDate, 111 ) as CheDate,a.CheTime from dbo.tabCheCi a left join dbo.tabStation b on a.ChufaID=b.staID left join dbo.tabStation c on a.MudiID= c.staID ";
-                string strDataConn = ConfigurationManager.ConnectionStrings["SQLDataConnStr"].ConnectionString;
-                SqlConnection dataConn = new SqlConnection(strDataConn);
+                if (Request["SearchKey"] == null)
+                {
+                    string strSQL = "select a.ID,a.CheID,a.ChufaID,b.staName as ChufaName, a.MudiID,c.staName as MudiName,a.PiaoShu,CONVERT(varchar(12) , a.CheDate, 111 ) as CheDate,a.CheTime from dbo.tabCheCi a left join dbo.tabStation b on a.ChufaID=b.staID left join dbo.tabStation c on a.MudiID= c.staID ";
+                    string strDataConn = ConfigurationManager.ConnectionStrings["SQLDataConnStr"].ConnectionString;
+                    SqlConnection dataConn = new SqlConnection(strDataConn);
 
-                dataConn.Open();
-                SqlDataAdapter da = new SqlDataAdapter(strSQL, strDataConn);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                DataTable dt = ds.Tables[0];
-                ViewState["dt"] = dt;
-                gdvCurrent.DataSource = ds.Tables[0];
-                gdvCurrent.DataBind();
+                    dataConn.Open();
+                    SqlDataAdapter da = new SqlDataAdapter(strSQL, strDataConn);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    DataTable dt = ds.Tables[0];
+                    ViewState["dt"] = dt;
+                    gdvCurrent.DataSource = ds.Tables[0];
+                    gdvCurrent.DataBind();
+                    dataConn.Close();
+                }
+                else {
+                    string strSearchValue = Request["SearchKey"].ToString().Trim();
+                    string[] ArrKeyValue = strSearchValue.Split('=');
+                    string strSQL = "select a.ID,a.CheID,a.ChufaID,b.staName as ChufaName, a.MudiID,c.staName as MudiName,a.PiaoShu,CONVERT(varchar(12) , a.CheDate, 111 ) as CheDate,a.CheTime from dbo.tabCheCi a left join dbo.tabStation b on a.ChufaID=b.staID left join dbo.tabStation c on a.MudiID= c.staID where ";
+                    strSQL += "ChufaID ='" + ArrKeyValue[0] + "' and " + "MudiID='" + ArrKeyValue[1] + "' or " + "CheDate = '" + ArrKeyValue[2] + "' or CheTime like '" + ArrKeyValue[3] + "%'";
+                    string strDataConn = ConfigurationManager.ConnectionStrings["SQLDataConnStr"].ConnectionString;
+                    SqlConnection dataConn = new SqlConnection(strDataConn);
+
+                    dataConn.Open();
+                    SqlDataAdapter da = new SqlDataAdapter(strSQL, strDataConn);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    DataTable dt = ds.Tables[0];
+                    ViewState["dt"] = dt;
+                    gdvCurrent.DataSource = ds.Tables[0];
+                    gdvCurrent.DataBind();
+                    dataConn.Close();
+                   
+                }
             }
 
         }

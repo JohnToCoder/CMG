@@ -13,7 +13,9 @@
     <script src="../JS/jquery-1.10.2.min.js" type="text/javascript"></script>  
     <script src="../JS/jquery.easyui.min.js" type="text/javascript"></script>
     <script src="../JS/validator.js" type="text/javascript"></script>
+    <script src="../JS/CheCiAdmin.js" type="text/javascript"></script>
     <script type="text/javascript">
+         
         $(window).resize(function () {
             var width = $(window).width() - 10;
             var height = $(window).height() - 10;
@@ -21,26 +23,7 @@
             $('#cc').height(height);
             $('#cc').layout();   //窗口改变大小时加载  
         });
-        $('#btnSearch').bind('click', function () {
-            var strChufa = $('#strChufa').combobox('getValue').toString();
-            var strMudi = $('#strMudi').combobox('getValue').toString();
-            var strDateTime = $('#strDate').datetimebox('getValue').toString();
-            var strDate = strDateTime.split(' ')[0].toString();
-            var strYear = strDate.split('/')[2].toString() + '/' + strDate.split('/')[0].toString() + '/' + strDate.split('/')[1].toString();
-            var strTime = strDateTime.split(' ')[1].toString();
-
-            if (strChufa == "" || strMudi == "") {
-                $.messager.alert('输入错误', '请选择出发地/目的地！', 'info');
-            } else {
-                var iFrameContent = $("#Iframe1").contents();
-                iFrameContent.find("#listview").empty();
-                var searchlist = "";
-                $.post('ashx/getCheci.ashx', { 'init': '1', 'chufa': strChufa, 'mudi': strMudi, 'date': strYear, 'time': strTime }, function (data) {
-                    searchlist = data;
-                    iFrameContent.find("#chcilist").append(searchlist);
-                })
-            }
-        });
+        
     </script>
     <style type="text/css"> 
         
@@ -133,15 +116,15 @@
                                     <ItemStyle CssClass="GvItem" HorizontalAlign="Center"></ItemStyle>
                                 </asp:BoundField>                                                          
                                 
-                                <%--<asp:TemplateField>
+                                <asp:TemplateField>
                                     <HeaderTemplate>
-                                        Detail</HeaderTemplate>
+                                        修改</HeaderTemplate>
                                     <ItemTemplate>
-                                        <a href="javascript:ChannelDetail('<%# DataBinder.Eval(Container.DataItem,"ID")%>')">Detail</a>
+                                        <a href="javascript:editCheCi('<%# DataBinder.Eval(Container.DataItem,"ID")%>','<%# DataBinder.Eval(Container.DataItem,"CheID")%>','<%# DataBinder.Eval(Container.DataItem,"ChufaID")%>','<%# DataBinder.Eval(Container.DataItem,"MudiID")%>','<%# DataBinder.Eval(Container.DataItem,"PiaoShu")%>','<%# DataBinder.Eval(Container.DataItem,"CheDate")%>','<%# DataBinder.Eval(Container.DataItem,"CheTime")%>')">修改</a>
                                     </ItemTemplate>
-                                    <HeaderStyle HorizontalAlign="Left" CssClass="GvHeader" Width="10px" />
-                                    <ItemStyle HorizontalAlign="Left" CssClass="GvItem" Width="10px" />
-                                </asp:TemplateField>  --%>                                                                               
+                                    <HeaderStyle HorizontalAlign="Left" CssClass="GvHeader" Width="40px" />
+                                    <ItemStyle HorizontalAlign="Left" CssClass="GvItem" Width="40px" />
+                                </asp:TemplateField>                                                                               
                             </Columns>
                             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                             <PagerStyle HorizontalAlign="Center" BackColor="#d1ecfc" CssClass="PageButton" />
@@ -159,9 +142,9 @@
                             <td><label >车次：</label></td>
                             <td><input id="txtCheCi" class="easyui-validatebox" type="text" name="name" ></td>
                             <td><label >出发地：</label></td>
-                            <td><input id="txtChufa" class="easyui-validatebox" type="text" name="name"></td>
+                            <td><input class="easyui-combobox" id="txteditChufa"  name="出发地" data-options="valueField:'staID',textField:'staName',url:'../ashx/getStation.ashx'"></td>
                             <td><label >目的地：</label></td>
-                            <td><input id="txtMudi" class="easyui-validatebox" type="text" name="name"></td>
+                            <td><input class="easyui-combobox" id="txteditMudi"  name="出发地" data-options="valueField:'staID',textField:'staName',url:'../ashx/getStation.ashx'"></td>
                         </tr>
                         <tr>
                             <td><label >票数：</label></td>
@@ -173,6 +156,7 @@
                         </tr>
                         <tr>
                             <td colspan=6 align=center> 
+                                <asp:TextBox ID="ID" runat="server" CssClass="hide"></asp:TextBox> 
                                 <a id="btnEdit" href="#" class="easyui-linkbutton">修改</a>
                                 <a id="btnAdd" href="#" class="easyui-linkbutton">新增</a>
                             </td>

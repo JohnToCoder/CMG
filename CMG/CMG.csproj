@@ -53,6 +53,7 @@
     <Content Include="Admin\CheCiAdmin.aspx" />
     <Content Include="Admin\ChePiaoAdmin.aspx" />
     <Content Include="Admin\NoteAdmin.aspx" />
+    <Content Include="JS\CheCiAdmin.js" />
     <Content Include="JS\GvStyle.css" />
     <Content Include="JS\menu.js" />
     <Content Include="JS\Style_d.css" />
