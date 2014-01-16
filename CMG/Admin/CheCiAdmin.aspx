@@ -7,9 +7,10 @@
     <title>车次管理</title>
 
     <link href="../JS/themes/default/easyui.css" rel="stylesheet" type="text/css" />
-    <link href="../JS/themes/icon.css" rel="stylesheet" type="text/css" />  
-    <script src="../JS/jquery-1.10.2.min.js" type="text/javascript"></script>
-    <script src="../JS/jquery.easyui.min.js" type="text/javascript"></script>
+    <link href="../JS/themes/icon.css" rel="stylesheet" type="text/css" />    
+    <link href="../JS/themes/index.css" rel="stylesheet" type="text/css" />      
+    <link href="../JS/GvStyle.css" rel="stylesheet" type="text/css" />
+    <script src="../JS/jquery-1.10.2.min.js" type="text/javascript"></script>  
     <script src="../JS/jquery.easyui.min.js" type="text/javascript"></script>
     <script src="../JS/validator.js" type="text/javascript"></script>
     <script type="text/javascript">
@@ -56,19 +57,20 @@
        td {  
             border: 1px solid #ccddff;             
             font-size:12px;  
-            padding: 1px 1px 1px 1px;  
+            padding: 1px 1px 1px 1px;
+              
             color: #4f6b72;  
         } 
         
         .style1
         {
             height: 30px;
-            width: 859px;
+            width: 850px;
         }
         .style2
         {
-            height: 300px;
-            width: 859px;
+            height: 240px;
+            width: 850px;
         }
         
     </style>  
@@ -80,67 +82,108 @@
             <tr><td class="style1">
                 <div id="Search" align=left >
                     <label >出发地：</label>
-                    <input class="easyui-combobox" id="strChufa" name="出发地" data-options="valueField:'staID',textField:'staName',url:'../ashx/getStation.ashx'">
+                    <input class="easyui-combobox" id="strChufa" width="100px" name="出发地" data-options="valueField:'staID',textField:'staName',url:'../ashx/getStation.ashx'">
                     <label >目的地：</label>
-                    <input class="easyui-combobox" id="strMudi" name="目的地" data-options="valueField:'staID',textField:'staName',url:'../ashx/getStation.ashx'">
+                    <input class="easyui-combobox" id="strMudi" width="100px" name="目的地" data-options="valueField:'staID',textField:'staName',url:'../ashx/getStation.ashx'">
                     <label >日期：</label>
                     <input class="easyui-datetimebox" id="strDate" data-options="required:true,showSeconds:false" value=" " style="width:120px">
                     <a id="btnSearch" href="#" class="easyui-linkbutton" data-options="toggle:true">查找</a>
                 </div>
                 </td></tr>
             <tr>
-                <td class="style2">                            
-                    <asp:GridView ID="gvcheci" runat="server" AutoGenerateColumns="False" 
-                        Height="255px" Width="743px" AllowPaging="True" AllowSorting="True" 
-                        DataSourceID="SqlDataSourceCheCi">
-                        <Columns>
-                            <asp:BoundField DataField="ID" HeaderText="ID" InsertVisible="False" 
-                                ReadOnly="True" SortExpression="ID">
-                                <ItemStyle Width="30px" />
-                            </asp:BoundField>
-                            <asp:BoundField DataField="CheID" HeaderText="车次" SortExpression="CheID" >
-                            <ItemStyle Width="60px" />
-                            </asp:BoundField>
-                            <asp:BoundField DataField="ChufaID" HeaderText="出发地" SortExpression="ChufaID" >
-                            <ItemStyle Width="60px" />
-                            </asp:BoundField>
-                            <asp:BoundField DataField="MudiID" HeaderText="目的地" SortExpression="MudiID" >
-                            <ItemStyle Width="60px" />
-                            </asp:BoundField>
-                            <asp:BoundField DataField="CheDate" HeaderText="日期" SortExpression="CheDate" >
-                            <ItemStyle Width="80px" />
-                            </asp:BoundField>
-                            <asp:BoundField DataField="CheTime" HeaderText="时间" SortExpression="CheTime" >
-                            <ItemStyle Width="80px" />
-                            </asp:BoundField>
-                            <asp:BoundField DataField="PiaoShu" HeaderText="票数" SortExpression="PiaoShu" >
-                            <ItemStyle Width="60px" />
-                            </asp:BoundField>
-                            <asp:CommandField ShowEditButton="True"/>
-                            <asp:CommandField ShowDeleteButton="True" />
-                        </Columns>
-                    </asp:GridView>
-                    <asp:SqlDataSource ID="SqlDataSourceCheCi" runat="server" 
-                        ConnectionString="<%$ ConnectionStrings:CMGConnectionString %>" 
-                        SelectCommand="SELECT [ID], [CheID], [ChufaID], [MudiID], [CheDate], [CheTime], [PiaoShu] FROM [tabCheCi]"
-                        DeleteCommand="delete from dbo.tabCheCi where ID=@ID"
-                        UpdateCommand = "Update tabCheCi set CheID =@CheID, ChufaID=@ChufaID,MudiID=@MudiID,CheDate = @CheDate,CheTime=@CheTime,PiaoShu=@PiaoShu where ID=@ID">
-                        <DeleteParameters>
-                            <asp:Parameter Name="ID" Type=String />
-                        </DeleteParameters>
-                        <UpdateParameters>
-                            <asp:Parameter Name="CheID" Type=String />
-                            <asp:Parameter Name="ChufaID" Type=String />
-                            <asp:Parameter Name="MudiID" Type=String />
-                            <asp:Parameter Name="CheDate" Type=String />
-                            <asp:Parameter name="CheTime" Type=String />
-                            <asp:Parameter Name="PiaoShu" Type=String />
-                        </UpdateParameters>
-                    </asp:SqlDataSource>
+                <td class="style2" align=center valign=top> 
+                    <asp:GridView ID="gdvCurrent" runat="server" AutoGenerateColumns="False" Width="100%"
+                            CellPadding="4" BorderWidth="0px" GridLines="Vertical" BorderStyle="None" AllowPaging="True"
+                            PageSize="8" OnPageIndexChanging="gdvCurrent_PageIndexChanging" >
+                            <PagerSettings PageButtonCount="4" />
+                            <Columns>
+                                <asp:TemplateField>
+                                    <ItemTemplate>
+                                        <asp:CheckBox ID="chkCheck" runat="server" />
+                                    </ItemTemplate>
+                                    <HeaderStyle CssClass="GvHeader" Width="10px" />
+                                    <ItemStyle CssClass="GvItem" Width="10px" />
+                                </asp:TemplateField>
+                                <asp:BoundField DataField="ID" HeaderText="ID">
+                                    <HeaderStyle CssClass="hide" HorizontalAlign="Right" VerticalAlign="Middle"></HeaderStyle>
+                                    <ItemStyle CssClass="hide" HorizontalAlign="Right"></ItemStyle>
+                                </asp:BoundField>                              
+                                <asp:BoundField DataField="CheID" HeaderText="车次">
+                                    <HeaderStyle CssClass="GvHeader" HorizontalAlign=Center VerticalAlign="Middle" Width="60px"></HeaderStyle>
+                                    <ItemStyle CssClass="GvItem" HorizontalAlign="Center" ></ItemStyle>
+                                </asp:BoundField>
+                                <asp:BoundField DataField="ChufaName" HeaderText="出发地">
+                                    <HeaderStyle CssClass="GvHeader" HorizontalAlign="Center" VerticalAlign="Middle" Width="60px"></HeaderStyle>
+                                    <ItemStyle CssClass="GvItem" HorizontalAlign="Center"></ItemStyle>
+                                </asp:BoundField>                                               
+                                <asp:BoundField DataField="MudiName" HeaderText="目的地">
+                                    <HeaderStyle CssClass="GvHeader" HorizontalAlign="Center" VerticalAlign="Middle" Width="60px"></HeaderStyle>
+                                    <ItemStyle CssClass="GvItem" HorizontalAlign="Center" ></ItemStyle>
+                                </asp:BoundField>
+                                 <asp:BoundField DataField="PiaoShu" HeaderText="票数">
+                                    <HeaderStyle CssClass="GvHeader" HorizontalAlign="Center" VerticalAlign="Middle" Width="40px"></HeaderStyle>
+                                    <ItemStyle CssClass="GvItem" HorizontalAlign="Center"></ItemStyle>
+                                </asp:BoundField>
+                                <asp:BoundField DataField="CheDate" HeaderText="日期">
+                                    <HeaderStyle CssClass="GvHeader" HorizontalAlign="Center" VerticalAlign="Middle" Width="60px"></HeaderStyle>
+                                    <ItemStyle CssClass="GvItem" HorizontalAlign="Center"></ItemStyle>
+                                </asp:BoundField>
+                                <asp:BoundField DataField="CheTime" HeaderText="时间">
+                                    <HeaderStyle CssClass="GvHeader" HorizontalAlign="Center" VerticalAlign="Middle" Width="60px"></HeaderStyle>
+                                    <ItemStyle CssClass="GvItem" HorizontalAlign="Center"></ItemStyle>
+                                </asp:BoundField>                                                          
+                                
+                                <%--<asp:TemplateField>
+                                    <HeaderTemplate>
+                                        Detail</HeaderTemplate>
+                                    <ItemTemplate>
+                                        <a href="javascript:ChannelDetail('<%# DataBinder.Eval(Container.DataItem,"ID")%>')">Detail</a>
+                                    </ItemTemplate>
+                                    <HeaderStyle HorizontalAlign="Left" CssClass="GvHeader" Width="10px" />
+                                    <ItemStyle HorizontalAlign="Left" CssClass="GvItem" Width="10px" />
+                                </asp:TemplateField>  --%>                                                                               
+                            </Columns>
+                            <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                            <PagerStyle HorizontalAlign="Center" BackColor="#d1ecfc" CssClass="PageButton" />
+                            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                            <EditRowStyle BackColor="#2461BF" />
+                            <AlternatingRowStyle CssClass="GridAlternatingRowStyle" />
+                        </asp:GridView>
+ 
+                </td>
+            </tr>
+            <tr>
+                <td valign=top style="width:850px;height:85px">
+                    <table id="tabedit">
+                        <tr>
+                            <td><label >车次：</label></td>
+                            <td><input id="txtCheCi" class="easyui-validatebox" type="text" name="name" ></td>
+                            <td><label >出发地：</label></td>
+                            <td><input id="txtChufa" class="easyui-validatebox" type="text" name="name"></td>
+                            <td><label >目的地：</label></td>
+                            <td><input id="txtMudi" class="easyui-validatebox" type="text" name="name"></td>
+                        </tr>
+                        <tr>
+                            <td><label >票数：</label></td>
+                            <td><input id="txtPiaoShu" class="easyui-validatebox" type="text" name="name" ></td>
+                            <td><label >日期：</label></td>
+                            <td><input id="txtDate" class="easyui-datebox"  name="name"></td>
+                            <td><label >时间：</label></td>
+                            <td><input id="txtTime" class="easyui-timespinner"  name="name"></td>
+                        </tr>
+                        <tr>
+                            <td colspan=6 align=center> 
+                                <a id="btnEdit" href="#" class="easyui-linkbutton">修改</a>
+                                <a id="btnAdd" href="#" class="easyui-linkbutton">新增</a>
+                            </td>
+                        </tr>
+                    </table>
+                  
                 </td>
             </tr>
         </table>
     </div>
+    <asp:TextBox ID="txtPageIndex" runat="server" CssClass="hide"></asp:TextBox>  
     </form>
 </body>
 </html>
