@@ -13,20 +13,90 @@
         $.messager.confirm('系统提示', '确定修改此项内容?',
             function (YesOrNO) {
                 if (YesOrNO) {
-                    alert('xiugai');
+                    updateCheCi();                    
                 }
             }
         );
     });
+    $('#btnAdd').bind('click', function () {
+        $.messager.confirm('系统提示', '确定增加此项内容?',
+        function (YesOrNO) {
+            if (YesOrNO) {
+                addCheCi();
+            }
+        }
+    );
+    });
 });
 
-function editCheCi(strID, strCheID, strChufaID, strMudiID, strPiaoShu, strCheDate, strCheTime) {
+function editCheCi(strID, strCheID, strChufaID, strMudiID, strPiaoShu, strPiaoJia,strCheDate, strCheTime) {
 //    alert(strID + strCheID + strChufaID + strMudiID + strPiaoShu + strCheDate + strCheTime);
     $('#ID').val(strID);
     $('#txtCheCi').val(strCheID);
     $('#txteditChufa').combobox('setValue',strChufaID);
     $('#txteditMudi').combobox('setValue', strMudiID);
     $('#txtPiaoShu').val(strPiaoShu);
+    $('#txtPiaoJia').val(strPiaoJia);
     $('#txtDate').datebox("setValue", strCheDate);
     $('#txtTime').val(strCheTime);
+}
+function updateCheCi() {
+    var strupID = $('#ID').val().toString();
+    var strupCheID = $('#txtCheCi').val().toString();
+    var strupChufaID = $('#txteditChufa').combobox('getValue').toString();
+    var strupMudiID = $('#txteditMudi').combobox('getValue').toString();
+    var strupPiaoShu = $('#txtPiaoShu').val().toString();
+    var strupPiaoJia = $('#txtPiaoJia').val().toString();
+    var strupCheDate = $('#txtDate').datebox("getValue").toString();
+    var strupCheTime = $('#txtTime').val().toString();
+
+    $.post('../ashx/editCheCi.ashx',
+        {
+            'flag': 'update',
+            'CheID': strupID,
+            'CheCi': strupCheID,
+            'ChufaID': strupChufaID,
+            'MudiID': strupMudiID,
+            'PiaoShu': strupPiaoShu,
+            'PiaoJia': strupPiaoJia,
+            'CheDate': strupCheDate,
+            'CheTime': strupCheTime
+        },
+        function (Return) {
+            if (Return == "OK") {
+                alert("修改成功！");
+                location.reload();
+            }
+        }
+    );
+}
+function addCheCi() {
+    var straddID = $('#ID').val().toString();
+    var straddCheID = $('#txtCheCi').val().toString();
+    var straddChufaID = $('#txteditChufa').combobox('getValue').toString();
+    var straddMudiID = $('#txteditMudi').combobox('getValue').toString();
+    var straddPiaoShu = $('#txtPiaoShu').val().toString();
+    var straddPiaoJia = $('#txtPiaoJia').val().toString();
+    var straddCheDate = $('#txtDate').datebox("getValue").toString();
+    var straddCheTime = $('#txtTime').val().toString();
+
+    $.post('../ashx/editCheCi.ashx',
+        {
+            'flag': 'add',
+            'CheID': straddID,
+            'CheCi': straddCheID,
+            'ChufaID': straddChufaID,
+            'MudiID': straddMudiID,
+            'PiaoShu': straddPiaoShu,
+            'PiaoJia': straddPiaoJia,
+            'CheDate': straddCheDate,
+            'CheTime': straddCheTime
+        },
+        function (Return) {
+            if (Return == "OK") {
+                alert("新增车次成功！");
+                location.reload();
+            }
+        }
+    );
 }

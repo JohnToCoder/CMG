@@ -104,7 +104,11 @@
                                     <ItemStyle CssClass="GvItem" HorizontalAlign="Center" ></ItemStyle>
                                 </asp:BoundField>
                                  <asp:BoundField DataField="PiaoShu" HeaderText="票数">
-                                    <HeaderStyle CssClass="GvHeader" HorizontalAlign="Center" VerticalAlign="Middle" Width="40px"></HeaderStyle>
+                                    <HeaderStyle CssClass="GvHeader" HorizontalAlign="Center" VerticalAlign="Middle" Width="60px"></HeaderStyle>
+                                    <ItemStyle CssClass="GvItem" HorizontalAlign="Center"></ItemStyle>
+                                </asp:BoundField>
+                                <asp:BoundField DataField="PiaoJia" HeaderText="票价">
+                                    <HeaderStyle CssClass="GvHeader" HorizontalAlign="Center" VerticalAlign="Middle" Width="60px"></HeaderStyle>
                                     <ItemStyle CssClass="GvItem" HorizontalAlign="Center"></ItemStyle>
                                 </asp:BoundField>
                                 <asp:BoundField DataField="CheDate" HeaderText="日期">
@@ -120,7 +124,7 @@
                                     <HeaderTemplate>
                                         修改</HeaderTemplate>
                                     <ItemTemplate>
-                                        <a href="javascript:editCheCi('<%# DataBinder.Eval(Container.DataItem,"ID")%>','<%# DataBinder.Eval(Container.DataItem,"CheID")%>','<%# DataBinder.Eval(Container.DataItem,"ChufaID")%>','<%# DataBinder.Eval(Container.DataItem,"MudiID")%>','<%# DataBinder.Eval(Container.DataItem,"PiaoShu")%>','<%# DataBinder.Eval(Container.DataItem,"CheDate")%>','<%# DataBinder.Eval(Container.DataItem,"CheTime")%>')">修改</a>
+                                        <a href="javascript:editCheCi('<%# DataBinder.Eval(Container.DataItem,"ID")%>','<%# DataBinder.Eval(Container.DataItem,"CheID")%>','<%# DataBinder.Eval(Container.DataItem,"ChufaID")%>','<%# DataBinder.Eval(Container.DataItem,"MudiID")%>','<%# DataBinder.Eval(Container.DataItem,"PiaoShu")%>','<%# DataBinder.Eval(Container.DataItem,"PiaoJia")%>','<%# DataBinder.Eval(Container.DataItem,"CheDate")%>','<%# DataBinder.Eval(Container.DataItem,"CheTime")%>')">修改</a>
                                     </ItemTemplate>
                                     <HeaderStyle HorizontalAlign="Left" CssClass="GvHeader" Width="40px" />
                                     <ItemStyle HorizontalAlign="Left" CssClass="GvItem" Width="40px" />
@@ -155,7 +159,9 @@
                             <td><input id="txtTime" class="easyui-timespinner"  name="name"></td>
                         </tr>
                         <tr>
-                            <td colspan=6 align=center> 
+                            <td><label >票价：</label></td>
+                            <td><input id="txtPiaoJia" class="easyui-validatebox" type="text" name="name" validType="number"></td>
+                            <td colspan=4 align=center> 
                                 <asp:TextBox ID="ID" runat="server" CssClass="hide"></asp:TextBox> 
                                 <a id="btnEdit" href="#" class="easyui-linkbutton">修改</a>
                                 <a id="btnAdd" href="#" class="easyui-linkbutton">新增</a>
