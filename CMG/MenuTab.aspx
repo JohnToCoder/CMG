@@ -27,6 +27,7 @@
                     <ul class="leftMenulist">
                          <li><div ><a href="#" rel="../Admin/CheCiAdmin.aspx" ><span class="icon icon-users" >&nbsp;</span><span class="nav">车次管理</span></a></div></li>
                          <li><div ><a href="#" rel="../Admin/ChePiaoAdmin.aspx" ><span class="icon icon-paste" >&nbsp;</span><span class="nav">车票管理</span></a></div></li>
+                         <li><div ><a href="#" rel="../Admin/UsersAdmin.aspx" ><span class="icon icon-user1" >&nbsp;</span><span class="nav">用户管理</span></a></div></li>
                          <li><div ><a href="#" rel="../UserInfo.aspx" ><span class="icon icon-user2" >&nbsp;</span><span class="nav">个人资料</span></a></div></li>
                          <li><div ><a href="#" rel="../Admin/NoteAdmin.aspx" ><span class="icon icon-tip" >&nbsp;</span><span class="nav">通知管理</span></a></div></li>
                          

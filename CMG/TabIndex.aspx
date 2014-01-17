@@ -61,7 +61,7 @@
                 </tr>
                 <tr> 
                     <td colspan=3 align=right style=" background-image:url('images/login_bg.jpg');background-repeat:repeat; height:30px" >
-                        <a href="javascript:void(0)" class="easyui-linkbutton" data-options="toggle:true">首    页</a>                       
+                        <a href="../Index.aspx" class="easyui-linkbutton" data-options="toggle:true">首    页</a>                       
                         <a href="javascript:void(0)" class="easyui-linkbutton" data-options="toggle:true">个人资料</a>
                         <a href="javascript:void(0)" class="easyui-linkbutton" data-options="toggle:true">联系我们</a>
                         <span id="interface_bt1" style=" margin:20px"><a href='loginout.aspx'><img alt="" src="images/logout.gif" onclick="return confirm('确认：您确认要安全注销，退出登录吗？')" border="0" title="安全注销，退出登陆" align=absmiddle/></a></span> 

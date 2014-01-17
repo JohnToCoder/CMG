@@ -53,7 +53,9 @@
     <Content Include="Admin\CheCiAdmin.aspx" />
     <Content Include="Admin\ChePiaoAdmin.aspx" />
     <Content Include="Admin\NoteAdmin.aspx" />
+    <Content Include="Admin\UsersAdmin.aspx" />
     <Content Include="JS\CheCiAdmin.js" />
+    <Content Include="JS\ChePiaoAdmin.js" />
     <Content Include="JS\GvStyle.css" />
     <Content Include="JS\menu.js" />
     <Content Include="JS\Style_d.css" />
@@ -1141,6 +1143,13 @@
     </Compile>
     <Compile Include="Admin\NoteAdmin.aspx.designer.cs">
       <DependentUpon>NoteAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UsersAdmin.aspx.cs">
+      <DependentUpon>UsersAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UsersAdmin.aspx.designer.cs">
+      <DependentUpon>UsersAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="ashx\editCheCi.ashx.cs">
       <DependentUpon>editCheCi.ashx</DependentUpon>

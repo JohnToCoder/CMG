@@ -26,18 +26,15 @@ function btnLoginClick() {
                     $('#txtUserName').val('');
                     $('#txtPassWord').val('');
                     $('#txtCode').val('');
-                    return;
                 }
                 else if (ReturnValue == "ErrUser") {
                     alert("用户名或者密码错误！");
-                    return;
                 }
                 else if (ReturnValue == "CodeError") {
                     alert("验证码错误");
                     $('#txtUserName').val('');
                     $('#txtPassWord').val('');
-                    $('#txtCode').val('');
-                    return;                 
+                    $('#txtCode').val('');              
                 }
                 else if (ReturnValue == "UserSuccess") {
                     

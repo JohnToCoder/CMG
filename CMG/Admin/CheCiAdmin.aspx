@@ -165,6 +165,7 @@
                                 <asp:TextBox ID="ID" runat="server" CssClass="hide"></asp:TextBox> 
                                 <a id="btnEdit" href="#" class="easyui-linkbutton">修改</a>
                                 <a id="btnAdd" href="#" class="easyui-linkbutton">新增</a>
+                                <a id="btnDelete" href="#" class="easyui-linkbutton">删除</a>
                             </td>
                         </tr>
                     </table>
