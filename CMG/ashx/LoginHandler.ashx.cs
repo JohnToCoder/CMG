@@ -25,7 +25,7 @@ namespace CMG.ashx
                 string strPwd = context.Request["pwd"].ToString();
                 string strCode = context.Request["code"].ToString();
                 Users userInfo = new Users(); //创建用户信息类，保存用户信息
-                string strSQL = " select a.ID,a.UserID,a.UserName,a.UserPW,a.UserType,b.TypeName,a.UserTel,a.UserEmail,a.CreatDate,a.Creator from dbo.tabUsers a left join dbo.tabUserType b on a.UserType=b.TypeID " + " where a.UserName = '" + strUseName + "'";
+                string strSQL = " select a.ID,a.UserID,a.UserName,a.UserPW,a.UserType,b.TypeName,a.UserTel,a.UserEmail from dbo.tabUsers a left join dbo.tabUserType b on a.UserType=b.TypeID " + " where a.UserName = '" + strUseName + "'";
                 string strDataConn = ConfigurationManager.ConnectionStrings["SQLDataConnStr"].ConnectionString;
                 SqlConnection dataConn = new SqlConnection(strDataConn);
                 SqlCommand command = new SqlCommand(strSQL, dataConn);
@@ -54,8 +54,7 @@ namespace CMG.ashx
                         userInfo.uTypeName = dr["TypeName"].ToString();
                         userInfo.uEmail = dr["UserEmail"].ToString();
                         userInfo.uTel = dr["UserTel"].ToString();
-                        userInfo.uCreatDate = dr["CreatDate"].ToString();
-                        userInfo.uCreator = dr["Creator"].ToString();
+                        
                     }
                     dr.Close();
                     dataConn.Close();
@@ -71,8 +70,6 @@ namespace CMG.ashx
                         context.Session["TypeName"] = userInfo.uTypeName;
                         context.Session["UserEmail"] = userInfo.uEmail;
                         context.Session["UserTel"] = userInfo.uTel;
-                        context.Session["CreatDate"] = userInfo.uCreatDate;
-                        context.Session["Creator"] = userInfo.uCreator;
 
                         context.Response.Write("UserSuccess");
                     }

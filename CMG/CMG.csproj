@@ -521,6 +521,7 @@
     <Content Include="JS\themes\icons\users2.gif" />
     <Content Include="JS\themes\icons\vss.gif" />
     <Content Include="JS\themes\index.css" />
+    <Content Include="JS\UsersAdmin.js" />
     <Content Include="JS\validator.js" />
     <Content Include="ListView.aspx" />
     <Content Include="loginout.aspx" />
@@ -1154,11 +1155,20 @@
     <Compile Include="ashx\editCheCi.ashx.cs">
       <DependentUpon>editCheCi.ashx</DependentUpon>
     </Compile>
+    <Compile Include="ashx\editChePiao.ashx.cs">
+      <DependentUpon>editChePiao.ashx</DependentUpon>
+    </Compile>
     <Compile Include="ashx\editPersonal.ashx.cs">
       <DependentUpon>editPersonal.ashx</DependentUpon>
     </Compile>
+    <Compile Include="ashx\editUsers.ashx.cs">
+      <DependentUpon>editUsers.ashx</DependentUpon>
+    </Compile>
     <Compile Include="ashx\getCheCi.ashx.cs">
       <DependentUpon>getCheCi.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ashx\getCheCiUser.ashx.cs">
+      <DependentUpon>getCheCiUser.ashx</DependentUpon>
     </Compile>
     <Compile Include="ashx\getNote.ashx.cs">
       <DependentUpon>getNote.ashx</DependentUpon>
@@ -1258,6 +1268,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ashx\editCheCi.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ashx\editChePiao.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ashx\getCheCiUser.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ashx\editUsers.ashx" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

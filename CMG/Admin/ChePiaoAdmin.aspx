@@ -64,10 +64,10 @@
         <table style=" margin-top:10px">
             <tr><td class="style1">
                 <div id="Search" align=left >
-                    <label >出发地：</label>
-                    <input class="easyui-combobox" id="strChufa" width="100px" name="出发地" data-options="valueField:'staID',textField:'staName',url:'../ashx/getStation.ashx'">
-                    <label >目的地：</label>
-                    <input class="easyui-combobox" id="strMudi" width="100px" name="目的地" data-options="valueField:'staID',textField:'staName',url:'../ashx/getStation.ashx'">
+                    <label >车次：</label>
+                    <input class="easyui-combobox" id="strSCheCi" width="100px" name="车次" data-options="valueField:'ID',textField:'CheID',url:'../ashx/getCheCiUser.ashx?Type=CheCi'">
+                    <label >用户：</label>
+                    <input class="easyui-combobox" id="strSUser" width="100px" name="用户" data-options="valueField:'ID',textField:'UserName',url:'../ashx/getCheCiUser.ashx?Type=User'">
                     <label >日期：</label>
                     <input class="easyui-datetimebox" id="strDate" data-options="required:true,showSeconds:false" value=" " style="width:120px">
                     <a id="btnSearch" href="#" class="easyui-linkbutton" data-options="toggle:true">查找</a>
@@ -90,45 +90,53 @@
                                 <asp:BoundField DataField="ID" HeaderText="ID">
                                     <HeaderStyle CssClass="hide" HorizontalAlign="Right" VerticalAlign="Middle"></HeaderStyle>
                                     <ItemStyle CssClass="hide" HorizontalAlign="Right"></ItemStyle>
-                                </asp:BoundField>                              
+                                </asp:BoundField>                                                             
                                 <asp:BoundField DataField="CheID" HeaderText="车次">
-                                    <HeaderStyle CssClass="GvHeader" HorizontalAlign=Center VerticalAlign="Middle" Width="60px"></HeaderStyle>
+                                    <HeaderStyle CssClass="GvHeader" HorizontalAlign=Center VerticalAlign="Middle" Width="40px"></HeaderStyle>
                                     <ItemStyle CssClass="GvItem" HorizontalAlign="Center" ></ItemStyle>
                                 </asp:BoundField>
                                 <asp:BoundField DataField="ChufaName" HeaderText="出发地">
-                                    <HeaderStyle CssClass="GvHeader" HorizontalAlign="Center" VerticalAlign="Middle" Width="60px"></HeaderStyle>
+                                    <HeaderStyle CssClass="GvHeader" HorizontalAlign="Center" VerticalAlign="Middle" Width="40px"></HeaderStyle>
                                     <ItemStyle CssClass="GvItem" HorizontalAlign="Center"></ItemStyle>
                                 </asp:BoundField>                                               
                                 <asp:BoundField DataField="MudiName" HeaderText="目的地">
-                                    <HeaderStyle CssClass="GvHeader" HorizontalAlign="Center" VerticalAlign="Middle" Width="60px"></HeaderStyle>
+                                    <HeaderStyle CssClass="GvHeader" HorizontalAlign="Center" VerticalAlign="Middle" Width="40px"></HeaderStyle>
                                     <ItemStyle CssClass="GvItem" HorizontalAlign="Center" ></ItemStyle>
                                 </asp:BoundField>
                                  <asp:BoundField DataField="PiaoShu" HeaderText="票数">
-                                    <HeaderStyle CssClass="GvHeader" HorizontalAlign="Center" VerticalAlign="Middle" Width="60px"></HeaderStyle>
+                                    <HeaderStyle CssClass="GvHeader" HorizontalAlign="Center" VerticalAlign="Middle" Width="40px"></HeaderStyle>
+                                    <ItemStyle CssClass="GvItem" HorizontalAlign="Center"></ItemStyle>
+                                </asp:BoundField>
+                                <asp:BoundField DataField="DingPiaoShu" HeaderText="订票">
+                                    <HeaderStyle CssClass="GvHeader" HorizontalAlign="Center" VerticalAlign="Middle" Width="40px"></HeaderStyle>
+                                    <ItemStyle CssClass="GvItem" HorizontalAlign="Center"></ItemStyle>
+                                </asp:BoundField>
+                                <asp:BoundField DataField="YuPiao" HeaderText="余票">
+                                    <HeaderStyle CssClass="GvHeader" HorizontalAlign="Center" VerticalAlign="Middle" Width="40px"></HeaderStyle>
                                     <ItemStyle CssClass="GvItem" HorizontalAlign="Center"></ItemStyle>
                                 </asp:BoundField>
                                 <asp:BoundField DataField="PiaoJia" HeaderText="票价">
-                                    <HeaderStyle CssClass="GvHeader" HorizontalAlign="Center" VerticalAlign="Middle" Width="60px"></HeaderStyle>
+                                    <HeaderStyle CssClass="GvHeader" HorizontalAlign="Center" VerticalAlign="Middle" Width="40px"></HeaderStyle>
                                     <ItemStyle CssClass="GvItem" HorizontalAlign="Center"></ItemStyle>
                                 </asp:BoundField>
                                 <asp:BoundField DataField="CheDate" HeaderText="日期">
-                                    <HeaderStyle CssClass="GvHeader" HorizontalAlign="Center" VerticalAlign="Middle" Width="60px"></HeaderStyle>
+                                    <HeaderStyle CssClass="GvHeader" HorizontalAlign="Center" VerticalAlign="Middle" Width="40px"></HeaderStyle>
                                     <ItemStyle CssClass="GvItem" HorizontalAlign="Center"></ItemStyle>
                                 </asp:BoundField>
                                 <asp:BoundField DataField="CheTime" HeaderText="时间">
-                                    <HeaderStyle CssClass="GvHeader" HorizontalAlign="Center" VerticalAlign="Middle" Width="60px"></HeaderStyle>
+                                    <HeaderStyle CssClass="GvHeader" HorizontalAlign="Center" VerticalAlign="Middle" Width="40px"></HeaderStyle>
                                     <ItemStyle CssClass="GvItem" HorizontalAlign="Center"></ItemStyle>
                                 </asp:BoundField>                                                          
-                                
                                 <asp:TemplateField>
                                     <HeaderTemplate>
-                                        修改</HeaderTemplate>
+                                        用户</HeaderTemplate>
                                     <ItemTemplate>
-                                        <a href="javascript:editCheCi('<%# DataBinder.Eval(Container.DataItem,"ID")%>','<%# DataBinder.Eval(Container.DataItem,"CheID")%>','<%# DataBinder.Eval(Container.DataItem,"ChufaID")%>','<%# DataBinder.Eval(Container.DataItem,"MudiID")%>','<%# DataBinder.Eval(Container.DataItem,"PiaoShu")%>','<%# DataBinder.Eval(Container.DataItem,"PiaoJia")%>','<%# DataBinder.Eval(Container.DataItem,"CheDate")%>','<%# DataBinder.Eval(Container.DataItem,"CheTime")%>')">修改</a>
+                                        <a href="javascript:viewUser('<%# DataBinder.Eval(Container.DataItem,"UsersID")%>','<%# DataBinder.Eval(Container.DataItem,"UserID")%>','<%# DataBinder.Eval(Container.DataItem,"UserName")%>','<%# DataBinder.Eval(Container.DataItem,"TypeName")%>','<%# DataBinder.Eval(Container.DataItem,"UserTel")%>','<%# DataBinder.Eval(Container.DataItem,"UserEmail")%>')"><%# DataBinder.Eval(Container.DataItem,"UserName")%></a>
                                     </ItemTemplate>
-                                    <HeaderStyle HorizontalAlign="Left" CssClass="GvHeader" Width="40px" />
-                                    <ItemStyle HorizontalAlign="Left" CssClass="GvItem" Width="40px" />
-                                </asp:TemplateField>                                                                               
+                                    <HeaderStyle HorizontalAlign="Center" CssClass="GvHeader" Width="40px" />
+                                    <ItemStyle HorizontalAlign="Center" CssClass="GvItem" Width="40px" />
+                                </asp:TemplateField> 
+                                                                                                       
                             </Columns>
                             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                             <PagerStyle HorizontalAlign="Center" BackColor="#d1ecfc" CssClass="PageButton" />
@@ -143,28 +151,27 @@
                 <td valign=top style="width:850px;height:85px">
                     <table id="tabedit">
                         <tr>
-                            <td><label >车次：</label></td>
-                            <td><input id="txtCheCi" class="easyui-validatebox" type="text" name="name" ></td>
-                            <td><label >出发地：</label></td>
-                            <td><input class="easyui-combobox" id="txteditChufa"  name="出发地" data-options="valueField:'staID',textField:'staName',url:'../ashx/getStation.ashx'"></td>
-                            <td><label >目的地：</label></td>
-                            <td><input class="easyui-combobox" id="txteditMudi"  name="出发地" data-options="valueField:'staID',textField:'staName',url:'../ashx/getStation.ashx'"></td>
+                            <td><label >用户ID：</label></td>
+                            <td><input id="txtUserID" class="easyui-validatebox" type="text" name="name" ></td>
+                            <td><label >用户名：</label></td>
+                            <td><input id="txtUserName" class="easyui-validatebox" type="text" name="name" ></td>
+                            <td><label >角色：</label></td>
+                            <td><input id="txtType" class="easyui-validatebox" type="text" name="name" ></td>
                         </tr>
                         <tr>
-                            <td><label >票数：</label></td>
-                            <td><input id="txtPiaoShu" class="easyui-validatebox" type="text" name="name" ></td>
-                            <td><label >日期：</label></td>
-                            <td><input id="txtDate" class="easyui-datebox"  name="name"></td>
-                            <td><label >时间：</label></td>
-                            <td><input id="txtTime" class="easyui-timespinner"  name="name"></td>
+                            <td><label >手机：</label></td>
+                            <td><input id="txtTell" class="easyui-validatebox" type="text" name="name" ></td>
+                            <td><label >邮箱：</label></td>
+                            <td><input id="txtEmail" class="easyui-validatebox" type="text" name="name"></td>
+                            <td colspan=2><label>有情况联系这里！</label></td>
                         </tr>
                         <tr>
-                            <td><label >票价：</label></td>
-                            <td><input id="txtPiaoJia" class="easyui-validatebox" type="text" name="name" validType="number"></td>
-                            <td colspan=4 align=center> 
+                            
+                            <td colspan=6 align=center> 
                                 <asp:TextBox ID="ID" runat="server" CssClass="hide"></asp:TextBox> 
-                                <a id="btnEdit" href="#" class="easyui-linkbutton">修改</a>
-                                <a id="btnAdd" href="#" class="easyui-linkbutton">新增</a>
+                                <label >选中需要删除的项目进行删除：</label>
+                                <a id="btnDelete" href="#" class="easyui-linkbutton">删除</a>
+                                
                             </td>
                         </tr>
                     </table>
