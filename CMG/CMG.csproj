@@ -58,6 +58,7 @@
     <Content Include="JS\ChePiaoAdmin.js" />
     <Content Include="JS\GvStyle.css" />
     <Content Include="JS\menu.js" />
+    <Content Include="JS\NoteAdmin.js" />
     <Content Include="JS\Style_d.css" />
     <Content Include="Images\031.gif" />
     <Content Include="Images\a.gif" />
@@ -1158,6 +1159,9 @@
     <Compile Include="ashx\editChePiao.ashx.cs">
       <DependentUpon>editChePiao.ashx</DependentUpon>
     </Compile>
+    <Compile Include="ashx\editNote.ashx.cs">
+      <DependentUpon>editNote.ashx</DependentUpon>
+    </Compile>
     <Compile Include="ashx\editPersonal.ashx.cs">
       <DependentUpon>editPersonal.ashx</DependentUpon>
     </Compile>
@@ -1175,6 +1179,9 @@
     </Compile>
     <Compile Include="ashx\getStation.ashx.cs">
       <DependentUpon>getStation.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ashx\getUserType.ashx.cs">
+      <DependentUpon>getUserType.ashx</DependentUpon>
     </Compile>
     <Compile Include="ashx\LoginHandler.ashx.cs">
       <DependentUpon>LoginHandler.ashx</DependentUpon>
@@ -1277,6 +1284,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ashx\editUsers.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ashx\getUserType.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ashx\editNote.ashx" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

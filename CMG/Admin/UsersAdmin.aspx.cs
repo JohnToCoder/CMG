@@ -36,7 +36,7 @@ namespace CMG.Admin
                     string strSearchValue = Request["SearchKey"].ToString().Trim();
                     string[] ArrKeyValue = strSearchValue.Split('=');
                     string strSQL = "select a.ID,a.UserID,a.UserName,a.UserPW,a.UserType,b.TypeName,a.UserTel,a.UserEmail from dbo.tabUsers a left join dbo.tabUserType b on a.UserType = b.TypeID where ";
-                    strSQL += "a.CheCiID like'" + ArrKeyValue[0] + "' or " + "a.UserID like'" + ArrKeyValue[1] + "' or " + "CheDate = '" + ArrKeyValue[2] + "' or CheTime like '" + ArrKeyValue[3] + "%'";
+                    strSQL += "a.UserID like'" + ArrKeyValue[0] + "' or " + "a.UserName like'" + ArrKeyValue[1] ;
                     string strDataConn = ConfigurationManager.ConnectionStrings["SQLDataConnStr"].ConnectionString;
                     SqlConnection dataConn = new SqlConnection(strDataConn);
 

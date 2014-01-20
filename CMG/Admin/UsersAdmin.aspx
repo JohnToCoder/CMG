@@ -67,8 +67,7 @@
                     <label >用户ID：</label>
                     <input class="easyui-validatebox" id="strSUserID" type="text" width="100px" name="用户ID" ">
                     <label >用户名：</label>
-                    <input class="easyui-validatebox" id="strSUserName" type="text" width="100px" name="用户名" ">
-                    
+                    <input class="easyui-validatebox" id="strSUserName" type="text" width="100px" name="用户名" ">                    
                     <a id="btnSearch" href="#" class="easyui-linkbutton" data-options="toggle:true">查找</a>
                 </div>
                 </td></tr>
@@ -115,7 +114,7 @@
                                     <HeaderTemplate>
                                         修改</HeaderTemplate>
                                     <ItemTemplate>
-                                        <a href="javascript:editUsers('<%# DataBinder.Eval(Container.DataItem,"ID")%>','<%# DataBinder.Eval(Container.DataItem,"UserID")%>','<%# DataBinder.Eval(Container.DataItem,"UserName")%>','<%# DataBinder.Eval(Container.DataItem,"UserType")%>','<%# DataBinder.Eval(Container.DataItem,"TypeName")%>','<%# DataBinder.Eval(Container.DataItem,"UserTel")%>','<%# DataBinder.Eval(Container.DataItem,"UserTel")%>','<%# DataBinder.Eval(Container.DataItem,"UserEmail")%>')">修改</a>
+                                        <a href="javascript:editUsers('<%# DataBinder.Eval(Container.DataItem,"ID")%>','<%# DataBinder.Eval(Container.DataItem,"UserID")%>','<%# DataBinder.Eval(Container.DataItem,"UserName")%>','<%# DataBinder.Eval(Container.DataItem,"UserType")%>','<%# DataBinder.Eval(Container.DataItem,"TypeName")%>','<%# DataBinder.Eval(Container.DataItem,"UserTel")%>','<%# DataBinder.Eval(Container.DataItem,"UserEmail")%>','<%# DataBinder.Eval(Container.DataItem,"UserPW")%>')">修改</a>
                                     </ItemTemplate>
                                     <HeaderStyle HorizontalAlign="Left" CssClass="GvHeader" Width="40px" />
                                     <ItemStyle HorizontalAlign="Left" CssClass="GvItem" Width="40px" />
@@ -140,7 +139,7 @@
                             <td><label >用户名：</label></td>
                             <td><input id="txtUserName" class="easyui-validatebox" type="text" name="name" ></td>
                             <td><label >角色：</label></td>
-                            <td><input id="txtType" class="easyui-validatebox" type="text" name="name" ></td>
+                            <td><input id="txtType" class="easyui-combobox" type="text" name="name" data-options="valueField:'TypeID',textField:'TypeName',url:'../ashx/getUserType.ashx'"></td>
                         </tr>
                         <tr>
                             <td><label >手机：</label></td>
