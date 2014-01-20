@@ -32,5 +32,17 @@ namespace CMG.Admin
                 dataConn.Close();
             }
         }
+        /// <summary> 
+        /// 函數名：gdvCurrent_PageIndexChanging
+        /// 函數功能：翻頁
+        /// </summary>
+        protected void gdvCurrent_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+
+            gdvCurrent.PageIndex = e.NewPageIndex;
+            gdvCurrent.DataSource = (DataTable)ViewState["dt"];
+            gdvCurrent.DataBind();
+            txtPageIndex.Text = e.NewPageIndex.ToString();
+        }
     }
 }

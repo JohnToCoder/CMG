@@ -32,7 +32,7 @@ namespace CMG.ashx
                 string strupUserEmail = context.Request["UserEmail"].ToString();
                
                 string updateSQL = "update dbo.tabUsers set ";
-                updateSQL += "UserID ='" + strupUserID + "', UserName='" + strupUserName + "',UserType = '" + strupUserType + "', UserType = '" + strupUserTell + "' where ID = '" + strupID + "'";
+                updateSQL += "UserID ='" + strupUserID + "', UserName='" + strupUserName + "',UserType = '" + strupUserType + "', UserTel = '" + strupUserTell + "', UserEmail = '" + strupUserEmail + "' where ID = '" + strupID + "'";
                 SqlCommand command = new SqlCommand(updateSQL, dataConn);
                 dataConn.Open();
                 command.ExecuteNonQuery();

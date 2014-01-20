@@ -89,7 +89,7 @@
                                     <HeaderStyle CssClass="hide" HorizontalAlign="Right" VerticalAlign="Middle"></HeaderStyle>
                                     <ItemStyle CssClass="hide" HorizontalAlign="Right"></ItemStyle>
                                 </asp:BoundField>                                                             
-                                <asp:BoundField DataField="UserID" HeaderText="用户名">
+                                <asp:BoundField DataField="UserID" HeaderText="用户ID">
                                     <HeaderStyle CssClass="GvHeader" HorizontalAlign=Center VerticalAlign="Middle" Width="60px"></HeaderStyle>
                                     <ItemStyle CssClass="GvItem" HorizontalAlign="Center" ></ItemStyle>
                                 </asp:BoundField>

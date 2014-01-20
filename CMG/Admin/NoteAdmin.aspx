@@ -49,15 +49,15 @@
         }
         #tabedit
         {
-            width: 844px;
+            width: 663px;
         }
         #txtTitle
         {
-            width: 730px;
+            width: 500px;
         }
         #txtNote
         {
-            width: 727px;
+            width: 500px;
             height: 75px;
         }
 
@@ -73,7 +73,7 @@
     <div id="cc">
         <table style=" margin-top:10px">            
             <tr>
-                <td style="width:850px; height:240px"  align=center valign=top> 
+                <td style="width:850px; height:200px"  align=center valign=top> 
                     <asp:GridView ID="gdvCurrent" runat="server" AutoGenerateColumns="False" Width="100%"
                             CellPadding="4" BorderWidth="0px" GridLines="Vertical" BorderStyle="None" AllowPaging="True"
                             PageSize="8" OnPageIndexChanging="gdvCurrent_PageIndexChanging" >
@@ -111,7 +111,7 @@
                                     <HeaderTemplate>
                                         修改</HeaderTemplate>
                                     <ItemTemplate>
-                                        <a href="javascript:editCheCi('<%# DataBinder.Eval(Container.DataItem,"ID")%>','<%# DataBinder.Eval(Container.DataItem,"Title")%>','<%# DataBinder.Eval(Container.DataItem,"Note")%>','<%# DataBinder.Eval(Container.DataItem,"CreatDate")%>','<%# DataBinder.Eval(Container.DataItem,"Creator")%>')">编辑</a>
+                                        <a href="javascript:editNote('<%# DataBinder.Eval(Container.DataItem,"ID")%>','<%# DataBinder.Eval(Container.DataItem,"Title")%>','<%# DataBinder.Eval(Container.DataItem,"Note")%>','<%# DataBinder.Eval(Container.DataItem,"CreatDate")%>','<%# DataBinder.Eval(Container.DataItem,"Creator")%>')">编辑</a>
                                     </ItemTemplate>
                                     <HeaderStyle HorizontalAlign="Center" CssClass="GvHeader" Width="40px" />
                                     <ItemStyle HorizontalAlign="Center" CssClass="GvItem" Width="40px" />
