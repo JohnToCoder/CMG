@@ -56,6 +56,7 @@
     <Content Include="Admin\UsersAdmin.aspx" />
     <Content Include="JS\CheCiAdmin.js" />
     <Content Include="JS\ChePiaoAdmin.js" />
+    <Content Include="JS\ChePiaoUser.js" />
     <Content Include="JS\GvStyle.css" />
     <Content Include="JS\menu.js" />
     <Content Include="JS\NoteAdmin.js" />
@@ -1204,6 +1205,9 @@
     <Compile Include="IsLogin.ascx.designer.cs">
       <DependentUpon>IsLogin.ascx</DependentUpon>
     </Compile>
+    <Compile Include="ashx\ChePiaoUser.ashx.cs">
+      <DependentUpon>ChePiaoUser.ashx</DependentUpon>
+    </Compile>
     <Compile Include="ListView.aspx.cs">
       <DependentUpon>ListView.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1290,6 +1294,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ashx\editNote.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ashx\ChePiaoUser.ashx" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
