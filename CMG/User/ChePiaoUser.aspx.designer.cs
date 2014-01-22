@@ -49,6 +49,42 @@ namespace CMG.User {
         protected global::System.Web.UI.WebControls.TextBox ID;
         
         /// <summary>
+        /// labYiding 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl labYiding;
+        
+        /// <summary>
+        /// btnTui 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor btnTui;
+        
+        /// <summary>
+        /// labXinzeng 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl labXinzeng;
+        
+        /// <summary>
+        /// btnDing 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor btnDing;
+        
+        /// <summary>
         /// txtPageIndex 控件。
         /// </summary>
         /// <remarks>

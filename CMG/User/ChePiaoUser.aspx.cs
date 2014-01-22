@@ -50,8 +50,26 @@ namespace CMG.User
                     gdvCurrent.DataSource = ds.Tables[0];
                     gdvCurrent.DataBind();
                     dataConn.Close();
-
                 }
+
+                IsUserDingPiao();
+            }
+        }
+
+        private void IsUserDingPiao()
+        {
+            string sessionID = Session["ID"].ToString();
+            string strSQL = "select a.ID,b.ID as CheCiID,b.CheID,b.ChufaID,e.staName as ChufaName,b.MudiID,f.staName as MudiName,CONVERT(varchar(12) , b.CheDate, 111 ) as CheDate,CONVERT(varchar(12) ,b.CheTime,108) as CheTime ,b.PiaoShu,a.PiaoShu as DingPiaoShu,a.YuPiao,b.PiaoJia,c.ID as UsersID,c.UserID,c.UserName,d.TypeName,c.UserTel,c.UserEmail from dbo.tabDingPiao a left join dbo.tabCheCi b on a.CheCiID=b.ID left join dbo.tabUsers c on a.UserID=c.ID left join dbo.tabUserType d on d.TypeID=c.UserType left join dbo.tabStation e on e.staID=b.ChufaID left join dbo.tabStation f on f.staID=b.MudiID  where UserID ='"+sessionID+"'";
+            string strDataConn = ConfigurationManager.ConnectionStrings["SQLDataConnStr"].ConnectionString;
+            SqlConnection dataConn = new SqlConnection(strDataConn);
+
+            dataConn.Open();
+            SqlDataAdapter da = new SqlDataAdapter(strSQL, strDataConn);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            DataTable dt = ds.Tables[0];
+            if (dt.Rows.Count > 0) {
+               
             }
         }
         /// <summary> 

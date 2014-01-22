@@ -56,6 +56,11 @@
             width: 850px;
         }
         
+        .style3
+        {
+            height: 25px;
+        }
+        
     </style>  
 </head>
 <body>
@@ -92,7 +97,7 @@
                                     <ItemStyle CssClass="hide" HorizontalAlign="Right"></ItemStyle>
                                 </asp:BoundField>                              
                                 <asp:BoundField DataField="CheID" HeaderText="车次">
-                                    <HeaderStyle CssClass="GvHeader" HorizontalAlign=Center VerticalAlign="Middle" Width="60px"></HeaderStyle>
+                                    <HeaderStyle CssClass="GvHeader" HorizontalAlign="Center" VerticalAlign="Middle" Width="60px"></HeaderStyle>
                                     <ItemStyle CssClass="GvItem" HorizontalAlign="Center" ></ItemStyle>
                                 </asp:BoundField>
                                 <asp:BoundField DataField="ChufaName" HeaderText="出发地">
@@ -128,7 +133,7 @@
                                     <HeaderTemplate>
                                         预订</HeaderTemplate>
                                     <ItemTemplate>
-                                        <a href="javascript:editCheCi('<%# DataBinder.Eval(Container.DataItem,"ID")%>','<%# DataBinder.Eval(Container.DataItem,"CheID")%>','<%# DataBinder.Eval(Container.DataItem,"ChufaID")%>','<%# DataBinder.Eval(Container.DataItem,"MudiID")%>','<%# DataBinder.Eval(Container.DataItem,"PiaoShu")%>','<%# DataBinder.Eval(Container.DataItem,"PiaoJia")%>','<%# DataBinder.Eval(Container.DataItem,"CheDate")%>','<%# DataBinder.Eval(Container.DataItem,"CheTime")%>')">修改</a>
+                                        <a href="javascript:editCheCi('<%# DataBinder.Eval(Container.DataItem,"ID")%>','<%# DataBinder.Eval(Container.DataItem,"CheID")%>','<%# DataBinder.Eval(Container.DataItem,"ChufaID")%>','<%# DataBinder.Eval(Container.DataItem,"MudiID")%>','<%# DataBinder.Eval(Container.DataItem,"PiaoShu")%>','<%# DataBinder.Eval(Container.DataItem,"PiaoJia")%>','<%# DataBinder.Eval(Container.DataItem,"CheDate")%>','<%# DataBinder.Eval(Container.DataItem,"CheTime")%>')">订票</a>
                                     </ItemTemplate>
                                     <HeaderStyle HorizontalAlign="Left" CssClass="GvHeader" Width="40px" />
                                     <ItemStyle HorizontalAlign="Left" CssClass="GvItem" Width="40px" />
@@ -147,16 +152,16 @@
                 <td valign=top style="width:850px;height:85px">
                     <table id="tabedit">
                         <tr>
-                            <td><label >车次：</label></td>
-                            <td><input id="txtCheCi" class="easyui-validatebox" type="text" name="name" ></td>
-                            <td><label >出发地：</label></td>
-                            <td><input class="easyui-combobox" id="txteditChufa"  name="出发地" data-options="valueField:'staID',textField:'staName',url:'../ashx/getStation.ashx'"></td>
-                            <td><label >目的地：</label></td>
-                            <td><input class="easyui-combobox" id="txteditMudi"  name="出发地" data-options="valueField:'staID',textField:'staName',url:'../ashx/getStation.ashx'"></td>
+                            <td class="style3"><label >车次：</label></td>
+                            <td class="style3"><input id="txtCheCi" class="easyui-validatebox" type="text" name="name" ></td>
+                            <td class="style3"><label >出发地：</label></td>
+                            <td class="style3"><input class="easyui-combobox" id="txteditChufa"  name="出发地" data-options="valueField:'staID',textField:'staName',url:'../ashx/getStation.ashx'"></td>
+                            <td class="style3"><label >目的地：</label></td>
+                            <td class="style3"><input class="easyui-combobox" id="txteditMudi"  name="出发地" data-options="valueField:'staID',textField:'staName',url:'../ashx/getStation.ashx'"></td>
                         </tr>
                         <tr>
-                            <td><label >票数：</label></td>
-                            <td><input id="txtPiaoShu" class="easyui-validatebox" type="text" name="name" ></td>
+                            <td>订票<label >数：</label></td>
+                            <td><input id="txtPiaoShu" class="easyui-validatebox" type="text" name="name"></td>
                             <td><label >日期：</label></td>
                             <td><input id="txtDate" class="easyui-datebox"  name="name"></td>
                             <td><label >时间：</label></td>
@@ -167,9 +172,10 @@
                             <td><input id="txtPiaoJia" class="easyui-validatebox" type="text" name="name" validType="number"></td>
                             <td colspan=4 align=center> 
                                 <asp:TextBox ID="ID" runat="server" CssClass="hide"></asp:TextBox> 
-                                <a id="btnEdit" href="#" class="easyui-linkbutton">修改</a>
-                                <a id="btnAdd" href="#" class="easyui-linkbutton">新增</a>
-                                <a id="btnDelete" href="#" class="easyui-linkbutton">删除</a>
+                                <label id="labYiding" runat="server" style="display:none" >已订到票信息</label>                                
+                                <a id="btnTui" runat="server" href="#" class="easyui-linkbutton" style="display:none">退票</a>
+                                <label id="labXinzeng" runat="server" style="display:none" >新增订票信息</label>
+                                <a id="btnDing" runat="server" href="#" class="easyui-linkbutton" style="display:none">订票</a>
                             </td>
                         </tr>
                     </table>
