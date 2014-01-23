@@ -1,30 +1,66 @@
 ﻿$(function () {
     $('#btnSearch').bind('click', function () {
-        var strSCheCi = $('#strSCheCi').combobox('getValue').toString();
-        var strSUser = $('#strSUser').combobox('getValue').toString();
+        var strChufa = $('#strChufa').combobox('getValue').toString();
+        var strMudi = $('#strMudi').combobox('getValue').toString();
         var strDateTime = $('#strDate').datetimebox('getValue').toString();
         var strDate = strDateTime.split(' ')[0].toString();
         var strYear = strDate.split('/')[2].toString() + '/' + strDate.split('/')[0].toString() + '/' + strDate.split('/')[1].toString();
         var strTime = strDateTime.split(' ')[1].toString();
         //        alert("SearchKey=" + strChufa + '=' + strMudi + '=' + strYear + '=' + strTime);
-        location.href = '../Admin/ChePiaoUser.aspx?' + "SearchKey=" + strSCheCi + '=' + strSUser + '=' + strYear + '=' + strTime;
+        location.href = '../User/ChePiaoUser.aspx?' + "SearchKey=" + strChufa + '=' + strMudi + '=' + strYear + '=' + strTime;
     });
-
-    $('#btnDelete').bind('click', function () {
+    $('#btnDingpiao').bind('click', function () {
+        addDingPiao();
+    });
+    $('#btnTuipiao').bind('click', function () {
         deleteDingPiao();
     });
 });
 
-function viewUser(strUsersID, strUserID, strUserName, strTypeName, strUserTel, strUserEmail) {
+function editCheCi(strID, strCheID, strChufaID, strMudiID, strPiaoShu, strPiaoJia, strDingPiaoShu,strCheDate, strCheTime) {
     //    alert(strID + strCheID + strChufaID + strMudiID + strPiaoShu + strCheDate + strCheTime);
-
-    $('#txtUserID').val(strUserID);
-    $('#txtUserName').val(strUserName);
-    $('#txtType').val(strTypeName);
-    $('#txtTell').val(strUserTel);
-    $('#txtEmail').val(strUserEmail);
+    $('#ID').val(strID);
+    $('#txtCheCi').val(strCheID);
+    $('#txteditChufa').combobox('setValue', strChufaID);
+    $('#txteditMudi').combobox('setValue', strMudiID);
+    $('#txtDingPiaoShu').val(strDingPiaoShu);
+    $('#txtPiaoJia').val(strPiaoJia);
+    $('#txtDate').datebox("setValue", strCheDate);    
+    $('#txtTime').val(strCheTime);
 }
-
+function addDingPiao() {
+    var straddID = $('#ID').val().toString();
+    var straddCheID = $('#txtCheCi').val().toString();
+    var straddChufaID = $('#txteditChufa').combobox('getValue').toString();
+    var straddMudiID = $('#txteditMudi').combobox('getValue').toString();
+    var straddDingPiaoShu = $('#txtDingPiaoShu').val().toString();
+    var straddPiaoJia = $('#txtPiaoJia').val().toString();
+    var straddCheDate = $('#txtDate').datebox("getValue").toString();
+    var straddCheTime = $('#txtTime').val().toString();
+    if (straddCheID == '' || straddChufaID == '' || straddMudiID == '' || straddDingPiaoShu || straddPiaoJia == '') {
+        $.messager.alert("新增错误", "请填好新增项目内容！", "warning");
+    } else {
+        $.post('../ashx/editCheCi.ashx',
+        {
+            'flag': 'add',
+            'CheID': straddID,
+            'CheCi': straddCheID,
+            'ChufaID': straddChufaID,
+            'MudiID': straddMudiID,
+            'DingPiaoShu': straddDingPiaoShu,
+            'PiaoJia': straddPiaoJia,
+            'CheDate': straddCheDate,
+            'CheTime': straddCheTime
+        },
+        function (Return) {
+            if (Return == "OK") {
+                alert("新增车次成功！");
+                location.reload();
+            }
+        }
+    );
+    }
+}
 function deleteDingPiao() {
     var chk = $('tbody>tr>td').find(':checkbox')
     var chked = chk.filter(':checked');
@@ -51,7 +87,7 @@ function getKeyValue(strChked) {
         strdelID += "-" + strChked[i].parentNode.nextSibling.innerHTML;
     }
 
-    $.post('../ashx/editChePiao.ashx',
+    $.post('../ashx/editChePiaoUser.ashx',
         {
             'flag': 'delete',
             'delID': strdelID

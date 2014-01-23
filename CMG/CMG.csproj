@@ -54,6 +54,7 @@
     <Content Include="Admin\ChePiaoAdmin.aspx" />
     <Content Include="Admin\NoteAdmin.aspx" />
     <Content Include="Admin\UsersAdmin.aspx" />
+    <Content Include="DeskTop.aspx" />
     <Content Include="JS\CheCiAdmin.js" />
     <Content Include="JS\ChePiaoAdmin.js" />
     <Content Include="JS\ChePiaoUser.js" />
@@ -1191,6 +1192,13 @@
       <DependentUpon>CheckCode.ashx</DependentUpon>
     </Compile>
     <Compile Include="Class\Users.cs" />
+    <Compile Include="DeskTop.aspx.cs">
+      <DependentUpon>DeskTop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeskTop.aspx.designer.cs">
+      <DependentUpon>DeskTop.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1205,8 +1213,8 @@
     <Compile Include="IsLogin.ascx.designer.cs">
       <DependentUpon>IsLogin.ascx</DependentUpon>
     </Compile>
-    <Compile Include="ashx\ChePiaoUser.ashx.cs">
-      <DependentUpon>ChePiaoUser.ashx</DependentUpon>
+    <Compile Include="ashx\editChePiaoUser.ashx.cs">
+      <DependentUpon>editChePiaoUser.ashx</DependentUpon>
     </Compile>
     <Compile Include="ListView.aspx.cs">
       <DependentUpon>ListView.aspx</DependentUpon>
@@ -1296,7 +1304,7 @@
     <Content Include="ashx\editNote.ashx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ashx\ChePiaoUser.ashx" />
+    <Content Include="ashx\editChePiaoUser.ashx" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

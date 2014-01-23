@@ -40,49 +40,40 @@ namespace CMG.User {
         protected global::System.Web.UI.WebControls.GridView gdvCurrent;
         
         /// <summary>
-        /// ID 控件。
+        /// divtuipiao 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ID;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divtuipiao;
         
         /// <summary>
-        /// labYiding 控件。
+        /// btnTuipiao 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl labYiding;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor btnTuipiao;
         
         /// <summary>
-        /// btnTui 控件。
+        /// divdingpiao 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor btnTui;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divdingpiao;
         
         /// <summary>
-        /// labXinzeng 控件。
+        /// btnDingpiao 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl labXinzeng;
-        
-        /// <summary>
-        /// btnDing 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor btnDing;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor btnDingpiao;
         
         /// <summary>
         /// txtPageIndex 控件。
@@ -92,5 +83,14 @@ namespace CMG.User {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPageIndex;
+        
+        /// <summary>
+        /// ID 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ID;
     }
 }

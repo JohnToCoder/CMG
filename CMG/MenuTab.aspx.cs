@@ -11,7 +11,7 @@ namespace CMG
     {
         protected void Page_Load(object sender, EventArgs e)
         {           
-            string strUserType = "";
+            string strUserType = Session["UserType"].ToString();
             if (!Page.IsPostBack)
             {               
               //  strUserType = Session["UserType"].ToString();
