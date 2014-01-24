@@ -17,45 +17,48 @@
     });
 });
 
-function editCheCi(strID, strCheID, strChufaID, strMudiID, strPiaoShu, strPiaoJia, strDingPiaoShu,strCheDate, strCheTime) {
+function editCheCi(strID,strCheCiID, strCheID, strChufaID, strMudiID, strPiaoShu, strPiaoJia, strDingPiaoShu,strYuPiao,strCheDate, strCheTime) {
     //    alert(strID + strCheID + strChufaID + strMudiID + strPiaoShu + strCheDate + strCheTime);
     $('#ID').val(strID);
+    $('#txtCheCiID').val(strCheCiID);
     $('#txtCheCi').val(strCheID);
     $('#txteditChufa').combobox('setValue', strChufaID);
-    $('#txteditMudi').combobox('setValue', strMudiID);
-    $('#txtDingPiaoShu').val(strDingPiaoShu);
+    $('#txteditMudi').combobox('setValue', strMudiID);   
     $('#txtPiaoJia').val(strPiaoJia);
-    $('#txtDate').datebox("setValue", strCheDate);    
+    $('#txtDate').datebox("setValue", strCheDate);
     $('#txtTime').val(strCheTime);
+    if (strYuPiao == '') {
+        $('#txtYuPiao').val(strPiaoShu);
+    }
+    else {
+        $('#txtYuPiao').val(strYuPiao);
+    }
+    $('#txtPiaoShu').val(strPiaoShu);
+    $('#txtDingPiaoShu').val(strDingPiaoShu);
 }
 function addDingPiao() {
     var straddID = $('#ID').val().toString();
-    var straddCheID = $('#txtCheCi').val().toString();
-    var straddChufaID = $('#txteditChufa').combobox('getValue').toString();
-    var straddMudiID = $('#txteditMudi').combobox('getValue').toString();
+    var straddCheCiID = $('#txtCheCiID').val().toString(); 
     var straddDingPiaoShu = $('#txtDingPiaoShu').val().toString();
-    var straddPiaoJia = $('#txtPiaoJia').val().toString();
-    var straddCheDate = $('#txtDate').datebox("getValue").toString();
-    var straddCheTime = $('#txtTime').val().toString();
-    if (straddCheID == '' || straddChufaID == '' || straddMudiID == '' || straddDingPiaoShu || straddPiaoJia == '') {
+    var straddYuPiao = $('#txtYuPiao').val().toString();
+    
+    if (straddDingPiaoShu =='') {
         $.messager.alert("新增错误", "请填好新增项目内容！", "warning");
-    } else {
-        $.post('../ashx/editCheCi.ashx',
+    } else if ((parseInt(straddYuPiao) - parseInt(straddDingPiaoShu)) < 0) {
+        $.messager.alert("新增错误", "余票不足！", "warning");
+    }
+    else {
+        $.post('../ashx/editChePiaoUser.ashx',
         {
             'flag': 'add',
-            'CheID': straddID,
-            'CheCi': straddCheID,
-            'ChufaID': straddChufaID,
-            'MudiID': straddMudiID,
+            'CheCiID': straddCheCiID,           
             'DingPiaoShu': straddDingPiaoShu,
-            'PiaoJia': straddPiaoJia,
-            'CheDate': straddCheDate,
-            'CheTime': straddCheTime
-        },
+            'YuPiao':(parseInt(straddYuPiao) - parseInt(straddDingPiaoShu)).toString()
+          },
         function (Return) {
             if (Return == "OK") {
-                alert("新增车次成功！");
-                location.reload();
+                alert("订票成功！");
+                location.href="../User/ChePiaoUser.aspx";
             }
         }
     );
@@ -86,11 +89,15 @@ function getKeyValue(strChked) {
     for (i = 1; i < strChked.length; i++) {
         strdelID += "-" + strChked[i].parentNode.nextSibling.innerHTML;
     }
-
+    var straddCheCiID = $('#txtCheCiID').val().toString(); 
+    var straddDingPiaoShu = $('#txtDingPiaoShu').val().toString();
+    var straddYuPiao = $('#txtYuPiao').val().toString();
     $.post('../ashx/editChePiaoUser.ashx',
         {
             'flag': 'delete',
-            'delID': strdelID
+            'delID': strdelID,
+            'CheCiID': straddCheCiID, 
+            'YuPiao': (parseInt(straddYuPiao) + parseInt(straddDingPiaoShu)).toString()
         },
         function (Return) {
             if (Return == "OK") {

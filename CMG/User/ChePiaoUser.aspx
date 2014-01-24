@@ -135,7 +135,7 @@
                                     <HeaderTemplate>
                                         预订/退票</HeaderTemplate>
                                     <ItemTemplate>
-                                        <a href="javascript:editCheCi('<%# DataBinder.Eval(Container.DataItem,"ID")%>','<%# DataBinder.Eval(Container.DataItem,"CheID")%>','<%# DataBinder.Eval(Container.DataItem,"ChufaID")%>','<%# DataBinder.Eval(Container.DataItem,"MudiID")%>','<%# DataBinder.Eval(Container.DataItem,"PiaoShu")%>','<%# DataBinder.Eval(Container.DataItem,"PiaoJia")%>','<%# DataBinder.Eval(Container.DataItem,"DingPiaoShu")%>','<%# DataBinder.Eval(Container.DataItem,"CheDate")%>','<%# DataBinder.Eval(Container.DataItem,"CheTime")%>')">预订/退票</a>
+                                        <a href="javascript:editCheCi('<%# DataBinder.Eval(Container.DataItem,"ID")%>','<%# DataBinder.Eval(Container.DataItem,"CheCiID")%>','<%# DataBinder.Eval(Container.DataItem,"CheID")%>','<%# DataBinder.Eval(Container.DataItem,"ChufaID")%>','<%# DataBinder.Eval(Container.DataItem,"MudiID")%>','<%# DataBinder.Eval(Container.DataItem,"PiaoShu")%>','<%# DataBinder.Eval(Container.DataItem,"PiaoJia")%>','<%# DataBinder.Eval(Container.DataItem,"DingPiaoShu")%>','<%# DataBinder.Eval(Container.DataItem,"YuPiao")%>','<%# DataBinder.Eval(Container.DataItem,"CheDate")%>','<%# DataBinder.Eval(Container.DataItem,"CheTime")%>')">预订/退票</a>
                                     </ItemTemplate>
                                     <HeaderStyle HorizontalAlign="Left" CssClass="GvHeader" Width="40px" />
                                     <ItemStyle HorizontalAlign="Left" CssClass="GvItem" Width="40px" />
@@ -155,7 +155,9 @@
                     <table id="tabedit">
                         <tr>
                             <td class="style3" ><label >车次：</label></td>
-                            <td><input id="txtCheCi" class="easyui-validatebox" type="text" name="name" ></td>
+                            <td>
+                            <asp:TextBox ID="txtCheCiID" runat="server" CssClass="hide"></asp:TextBox>
+                            <input id="txtCheCi" class="easyui-validatebox" type="text" name="name" ></td>
                             <td class="style3" ><label >出发地：</label></td>
                             <td><input class="easyui-combobox" id="txteditChufa"  name="出发地" data-options="valueField:'staID',textField:'staName',url:'../ashx/getStation.ashx'"></td>
                             <td class="style3"><label >目的地：</label></td>
@@ -171,11 +173,15 @@
                             <td><input id="txtTime" class="easyui-timespinner"  name="name"></td>
                         </tr>
                         <tr>
+                            <td class="style3"><label >票数：</label></td>
+                            <td><input id="txtPiaoShu" class="easyui-validatebox" type="text" name="name"></td>
+                            <td class="style3"><label >余票：</label></td>
+                            <td><input id="txtYuPiao" class="easyui-validatebox" type="text" name="name"></td>
                             <td class="style3"><label >订票数：</label></td>
-                            <td><input id="txtDingPiaoShu" class="easyui-validatebox" type="text" name="name">
-                                
-                            </td>
-                            <td colspan=4 align=center> 
+                            <td><input id="txtDingPiaoShu" class="easyui-validatebox" type="text" name="name"></td>
+                        </tr>
+                        <tr>
+                            <td colspan=6 align=center> 
                                <div id="divtuipiao" runat="server" visible=false>                               
                                 <label >已订票信息</label>                                
                                 <a id="btnTuipiao" runat="server" href="#" class="easyui-linkbutton" >退票</a>
@@ -193,7 +199,7 @@
         </table>
     </div>
     <asp:TextBox ID="txtPageIndex" runat="server" CssClass="hide"></asp:TextBox>  
-    <asp:TextBox ID="ID" runat="server" CssClass="hide"></asp:TextBox> 
+    <asp:TextBox ID="ID" runat="server" CssClass="hide"></asp:TextBox>    
     </form>
 </body>
 </html>
