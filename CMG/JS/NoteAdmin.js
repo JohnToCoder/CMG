@@ -72,7 +72,7 @@ function addNote() {
         },
         function (Return) {
             if (Return == "OK") {
-                alert("新增车次成功！");
+                alert("新增通知成功！");
                 location.reload();
             }
         }

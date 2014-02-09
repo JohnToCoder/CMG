@@ -101,7 +101,7 @@ function getKeyValue(strChked) {
         },
         function (Return) {
             if (Return == "OK") {
-                alert("删除车次成功！");
+                alert("删除订票信息成功！");
                 location.reload();
             }
         }

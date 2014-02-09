@@ -1,11 +1,14 @@
 ﻿
 $(function () {
-   
+
     $('#btnSearch').bind('click', function () {
         getSearchList();
     });
     $('#btnLogin').bind('click', function () {
         btnLoginClick();
+    });
+    $('#linkSign').bind('click', function () {
+        $('#w').window('open');
     });
 });
 

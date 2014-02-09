@@ -122,7 +122,7 @@
                                 <tr>
                                     
                                     <td colspan=3 align=center> 
-                                        <a id="linkSign" href="#" onclick="">如果没有账号，点击这里注册</a>
+                                        <a id="linkSign" href="#" >如果没有账号，点击这里注册</a>
                                     </td>
                                 </tr>
                             </tbody>
@@ -163,7 +163,18 @@
                 </tr>            
          </table>
      </div>
-
+     <div id="w" class="easyui-window" title="Window Layout" data-options="iconCls:'icon-save',closed:'true'" style="width:500px;height:200px;padding:5px;">
+        <div class="easyui-layout" data-options="fit:true">
+            <div data-options="region:'east',split:true" style="width:100px"></div>
+            <div data-options="region:'center'" style="padding:10px;">
+                jQuery EasyUI framework help you build your web page easily.
+            </div>
+            <div data-options="region:'south',border:false" style="text-align:right;padding:5px 0 0;">
+                <a class="easyui-linkbutton" data-options="iconCls:'icon-ok'" href="javascript:void(0)" onclick="javascript:alert('ok')">Ok</a>
+                <a class="easyui-linkbutton" data-options="iconCls:'icon-cancel'" href="javascript:void(0)" onclick="javascript:alert('cancel')">Cancel</a>
+            </div>
+        </div>
+    </div>
     </form>
 </body>
 </html>
