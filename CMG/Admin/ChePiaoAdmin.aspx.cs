@@ -18,7 +18,7 @@ namespace CMG.Admin
             {
                 if (Request["SearchKey"] == null)
                 {
-                    string strSQL = "select a.ID,b.ID as CheCiID,b.CheID,b.ChufaID,e.staName as ChufaName,b.MudiID,f.staName as MudiName,CONVERT(varchar(12) , b.CheDate, 111 ) as CheDate,CONVERT(varchar(12) ,b.CheTime,108) as CheTime ,b.PiaoShu,a.PiaoShu as DingPiaoShu,a.YuPiao,b.PiaoJia,c.ID as UsersID,c.UserID,c.UserName,d.TypeName,c.UserTel,c.UserEmail from dbo.tabDingPiao a left join dbo.tabCheCi b on a.CheCiID=b.ID left join dbo.tabUsers c on a.UserID=c.ID left join dbo.tabUserType d on d.TypeID=c.UserType left join dbo.tabStation e on e.staID=b.ChufaID left join dbo.tabStation f on f.staID=b.MudiID  ";
+                    string strSQL = "select a.ID,b.ID as CheCiID,b.CheID,b.ChufaID,e.staName as ChufaName,b.MudiID,f.staName as MudiName,CONVERT(varchar(12) , b.CheDate, 111 ) as CheDate,CONVERT(varchar(12) ,b.CheTime,108) as CheTime ,b.PiaoShu,a.DingPiaoShu,a.YuPiao,b.PiaoJia,c.ID as UsersID,c.UserID,c.UserName,d.TypeName,c.UserTel,c.UserEmail from dbo.tabDingPiao a left join dbo.tabCheCi b on a.CheCiID=b.ID left join dbo.tabUsers c on a.UserID=c.ID left join dbo.tabUserType d on d.TypeID=c.UserType left join dbo.tabStation e on e.staID=b.ChufaID left join dbo.tabStation f on f.staID=b.MudiID  ";
                     string strDataConn = ConfigurationManager.ConnectionStrings["SQLDataConnStr"].ConnectionString;
                     SqlConnection dataConn = new SqlConnection(strDataConn);
 

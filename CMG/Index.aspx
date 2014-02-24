@@ -115,14 +115,14 @@
                                 <tr>
                                   
                                     <td colspan=3 height=30px align=center>
-                                        <asp:Button runat=server class="button" ID="btnLogin" Text="登录"  OnClientClick="return Validator.Validate(this.form,1);" />
+                                        <asp:Button runat=server class="button" ID="btnLogin" Text="登录"  />
                                         <input id="chkRemeber" type=checkbox name="chkRemember" style="margin-left:8px; vertical-align:middle;"/><label for="chkRemember" style="vertical-align:middle;">记住本次登录</label>
                                     </td>                                                                
                                 </tr>
                                 <tr>
                                     
                                     <td colspan=3 align=center> 
-                                        <a id="linkSign" href="#" >如果没有账号，点击这里注册</a>
+                                        <a id="linkRegister" href="#" >如果没有账号，点击这里注册</a>
                                     </td>
                                 </tr>
                             </tbody>
@@ -163,17 +163,20 @@
                 </tr>            
          </table>
      </div>
-     <div id="w" class="easyui-window" title="Window Layout" data-options="iconCls:'icon-save',closed:'true'" style="width:500px;height:200px;padding:5px;">
-        <div class="easyui-layout" data-options="fit:true">
-            <div data-options="region:'east',split:true" style="width:100px"></div>
-            <div data-options="region:'center'" style="padding:10px;">
-                jQuery EasyUI framework help you build your web page easily.
-            </div>
-            <div data-options="region:'south',border:false" style="text-align:right;padding:5px 0 0;">
-                <a class="easyui-linkbutton" data-options="iconCls:'icon-ok'" href="javascript:void(0)" onclick="javascript:alert('ok')">Ok</a>
-                <a class="easyui-linkbutton" data-options="iconCls:'icon-cancel'" href="javascript:void(0)" onclick="javascript:alert('cancel')">Cancel</a>
-            </div>
-        </div>
+     <div id="WinIns" title="注册用户" collapsible="false" minimizable="false" maximizable="false"  style="padding: 15px;background:#fafafa; width:99%;height:99%;display:none; overflow:hidden">
+           <div region="center" border="false" style="background: #fff; border: 1px solid #ccc;width:98%;height:93%;">
+               
+           </div> 
+           <div region="south" border="false" style="text-align: center; vertical-align:middle; height: 25px; line-height: 25px;">                
+                <table cellpadding="0" border="0" cellspacing="0" style="background: #fff; border: 1px solid #ccc;width:98%;">
+                    <tr><td align="right" style="padding-top:5px;">
+                             <a id="btnOK" href="javascript:void(0)" class="easyui-linkbutton" data-options="toggle:true">确定</a>
+                        </td>
+                         <td align="left" style="padding-left:15px;padding-top:5px;">
+                             <a id="btnCancel" href="javascript:void(0)" class="easyui-linkbutton" data-options="toggle:true">取消</a>
+                    </td></tr>
+                 </table> 
+           </div>    
     </div>
     </form>
 </body>

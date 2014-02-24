@@ -4,19 +4,51 @@ $(function () {
     $('#btnSearch').bind('click', function () {
         getSearchList();
     });
-    $('#btnLogin').bind('click', function () {
+    $('#btnLogin').bind('click', function () {  
         btnLoginClick();
     });
-    $('#linkSign').bind('click', function () {
-        $('#w').window('open');
+    $('#linkRegister').bind('click', function () {
+        openWin();
+    });
+    $('#btnOK').bind('click', function () {
+        $.messager.confirm('系统提示', '确定提交你的注册信息?',
+            function (YesOrNO) {
+                if (YesOrNO) {
+                    addUser();
+                }
+            }
+        );
+    });
+    $('#btnCancel').bind('click', function () {
+        $('#WinIns').window('close');
+
     });
 });
 
+function openWin() {
+    $('#WinIns').window({
+        width: 650,
+        modal: true,
+        shadow: true,
+        closed: true,
+        height: 480,
+        top: 100,
+        left: 150,
+        resizable: false,
+        title: ' 新增窗口'
+    });
+    $('#WinIns').css("display", "block");
+    $('#WinIns').window('open');
+}
+
 function btnLoginClick() {
+    
     var strUserName = $('#txtUserName').val().toString();
     var strUerPW = $('#txtPassWord').val().toString();
     var strCode = $('#txtCode').val().toString();
-
+    if (strUserName == '' || strUerPW == '' || strCode == '') {
+        alert('请输入正确的用户名或者密码！');
+    }
     $.post("../ashx/LoginHandler.ashx?rdItem="+new Date().getTime(),
             {
                 'username': escape(strUserName),
