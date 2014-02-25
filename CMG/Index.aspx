@@ -165,7 +165,62 @@
      </div>
      <div id="WinIns" title="注册用户" collapsible="false" minimizable="false" maximizable="false"  style="padding: 15px;background:#fafafa; width:99%;height:99%;display:none; overflow:hidden">
            <div region="center" border="false" style="background: #fff; border: 1px solid #ccc;width:98%;height:93%;">
-               
+                <table  border=0 cellpadding=0 cellspacing=0 style="width:380px; height:180px">
+                            <tbody>
+                                
+                                <tr>
+                                    <td height=30 width=60>用户名：</td>
+                                    <td valign="middle" >
+                                        <input runat=server name="txtUserName" value='' 
+                                        style="color:#ff0000; font-weight:bold; padding-left:5px; width:135px; height:25px; vertical-align:middle;" 
+                                        type="text"  dataType="Require" msg="用户名不能为空" maxLength=16 />
+                                    </td>                                                  
+                                </tr>
+                                <tr>
+                                    <td height=30 width=60>密    码：</td>
+                                    <td  >
+                                        <input runat=server name="txtPassWord" value='' 
+                                        style="color:#ff0000; font-weight:bold; padding-left:5px; width:135px; height:25px; vertical-align:middle;" 
+                                        type="password"  dataType="Require" msg="密码不能为空" maxLength=16 />
+                                    </td>
+                                   
+                                </tr> 
+                                <tr>
+                                    <td height=30 width=60>重复密码：</td>
+                                    <td  >
+                                        <input  runat=server name="txtPassWord" value='' 
+                                        style="color:#ff0000; font-weight:bold; padding-left:5px; width:135px; height:25px; vertical-align:middle;" 
+                                        type="password"  dataType="Require" msg="密码不能为空" maxLength=16 />
+                                    </td>                                   
+                                </tr>  
+                                <tr>
+                                    <td height=30 width=60>手机号 ：</td>
+                                    <td valign="middle" >
+                                        <input id="Text1" runat=server name="txtUserName" value='' 
+                                        style="color:#ff0000; font-weight:bold; padding-left:5px; width:135px; height:25px; vertical-align:middle;" 
+                                        type="text"  dataType="Require" msg="手机号不能为空" maxLength=16 />
+                                    </td>                                                  
+                                </tr> 
+                                <tr>
+                                    <td height=30 width=60>邮    箱：</td>
+                                    <td valign="middle" >
+                                        <input id="Text2" runat=server name="txtUserName" value='' 
+                                        style="color:#ff0000; font-weight:bold; padding-left:5px; width:135px; height:25px; vertical-align:middle;" 
+                                        type="text"  dataType="Require" msg="用户名不能为空" maxLength=16 />
+                                    </td>                                                  
+                                </tr>                      
+                                <tr>
+                                    <td height=30 width=60>验证码：</td>
+                                    <td  >                                        
+                                        <input runat=server name="txtCode" value='' style="color:#ff0000; font-weight:bold; padding-left:5px; width:135px; height:25px; vertical-align:middle;" type="text" title="看不清楚?点击图片切换"  maxLength=4  dataType="Require" msg="验证码不能为空" />&nbsp;                                                                
+                                     </td>
+                                     <td style="width:100px">                           
+                                        <img alt='看不清，换一张' id="Img1" src="../CheckCode.ashx?abc='+Math.random()" onerror="this.onerror=null;this.src='CheckCode.ashx?abc='+Math.random()" onclick="this.src='CheckCode.ashx?abc='+Math.random()" />
+                                    </td>   
+                                </tr>                             
+                                
+                            </tbody>
+                        </table>
            </div> 
            <div region="south" border="false" style="text-align: center; vertical-align:middle; height: 25px; line-height: 25px;">                
                 <table cellpadding="0" border="0" cellspacing="0" style="background: #fff; border: 1px solid #ccc;width:98%;">

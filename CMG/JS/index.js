@@ -40,15 +40,20 @@ function openWin() {
     $('#WinIns').css("display", "block");
     $('#WinIns').window('open');
 }
-
+//新增用户注册
+function addUser() {
+    alert('新增用户');
+}
+//登陆按钮点击事件
 function btnLoginClick() {
     
     var strUserName = $('#txtUserName').val().toString();
     var strUerPW = $('#txtPassWord').val().toString();
     var strCode = $('#txtCode').val().toString();
     if (strUserName == '' || strUerPW == '' || strCode == '') {
-        alert('请输入正确的用户名或者密码！');
+        alert('请输入正确的用户名或者密码！'); //确认用户有输入并且在页面验证了用户输入正确
     }
+    //用户登陆post回传到服务端进行验证
     $.post("../ashx/LoginHandler.ashx?rdItem="+new Date().getTime(),
             {
                 'username': escape(strUserName),
@@ -79,12 +84,11 @@ function btnLoginClick() {
             });
 }
 
-
+//回车登陆
 window.onload = function () {
 
     document.onkeydown = getKey;
 }
-
 function getKey(e) {
     e = e || window.event;
     var keycode = e.which ? e.which : e.keyCode;
@@ -95,14 +99,16 @@ function getKey(e) {
         $('#btnLogin').trigger('click');
     }
 }
+//初始化加载车次的查询信息
 function InitListView() {
     $("#listview").empty();
     var tabist = "";
     $.post('ashx/getCheci.ashx', function (data) {        
         tablist = data;
         $("#listview").append(tablist);
-    })   
+    })
 }
+//获取查询信息，查询车次和车票信息返货结果
 function getSearchList() {
 
     var strChufa = $('#strChufa').combobox('getValue').toString();
