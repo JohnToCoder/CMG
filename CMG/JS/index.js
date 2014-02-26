@@ -4,7 +4,8 @@ $(function () {
     $('#btnSearch').bind('click', function () {
         getSearchList();
     });
-    $('#btnLogin').bind('click', function () {  
+    $('#btnLogin').bind('click', function () {
+//        alert('test1');
         btnLoginClick();
     });
     $('#linkRegister').bind('click', function () {
@@ -26,14 +27,15 @@ $(function () {
 });
 
 function openWin() {
+    var left =0.5*( $(window).width())-70;
     $('#WinIns').window({
-        width: 650,
+        width: 450,
         modal: true,
         shadow: true,
         closed: true,
-        height: 480,
-        top: 100,
-        left: 150,
+        height: 380,
+        top: 150,
+        left: left,
         resizable: false,
         title: ' 新增窗口'
     });
@@ -46,21 +48,24 @@ function addUser() {
 }
 //登陆按钮点击事件
 function btnLoginClick() {
-    
+//    alert('test2');
     var strUserName = $('#txtUserName').val().toString();
     var strUerPW = $('#txtPassWord').val().toString();
     var strCode = $('#txtCode').val().toString();
     if (strUserName == '' || strUerPW == '' || strCode == '') {
         alert('请输入正确的用户名或者密码！'); //确认用户有输入并且在页面验证了用户输入正确
     }
+//    alert('test3');
     //用户登陆post回传到服务端进行验证
-    $.post("../ashx/LoginHandler.ashx?rdItem="+new Date().getTime(),
+    $.post("../ashx/LoginHandler.ashx?",
             {
+                'rdItem':new Date().getTime(),
                 'username': escape(strUserName),
                 'pwd': $.md5(strUerPW),
                 'code': escape(strCode)
             },
             function (ReturnValue) {
+//                alert('test4');
                 if (ReturnValue == "overtime") {
                     alert('驗證碼已過期');
                     $('#txtUserName').val('');
@@ -77,7 +82,7 @@ function btnLoginClick() {
                     $('#txtCode').val('');              
                 }
                 else if (ReturnValue == "UserSuccess") {
-                    
+//                    alert('test5');
                     location.href = "../TabIndex.aspx";
                 }
                 

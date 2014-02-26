@@ -11,7 +11,7 @@
     <script src="JS/jquery-1.10.2.min.js" type="text/javascript"></script>  
     <script src="JS/jquery.easyui.min.js" type="text/javascript"></script>
     <script src="JS/jquery.md5.js" type="text/javascript"></script>
-    <script src="JS/validator.js" type="text/javascript"></script>
+   <%-- <script src="JS/validator.js" type="text/javascript"></script>--%>
     <script src="JS/index.js" type="text/javascript"></script>    
     <script type="text/javascript">
          window.onload = function () { $('#loading-mask').fadeOut(); }
@@ -59,7 +59,7 @@
             </div>
          </div>  
    
-    <form id="form1" runat="server" onsubmit="return Validator.Validate(this.form,1);" >
+    <form id="form1" runat="server"> <%--onsubmit="return Validator.Validate(this.form,1);"--%> 
     <div id="cc"  style=" width:100%;height:100%; ">        
          
             <table runat=server id="tabMain"   style=" width:900px;height:700px; ">
@@ -115,13 +115,14 @@
                                 <tr>
                                   
                                     <td colspan=3 height=30px align=center>
-                                        <asp:Button runat=server class="button" ID="btnLogin" Text="登录"  />
+                                        
+                                        <a id="btnLogin" runat="server" href="javascript:void(0)" class="easyui-linkbutton" data-options="toggle:true">登录</a>
                                         <input id="chkRemeber" type=checkbox name="chkRemember" style="margin-left:8px; vertical-align:middle;"/><label for="chkRemember" style="vertical-align:middle;">记住本次登录</label>
                                     </td>                                                                
                                 </tr>
                                 <tr>
                                     
-                                    <td colspan=3 align=center> 
+                                    <td colspan=3 align="center"> 
                                         <a id="linkRegister" href="#" >如果没有账号，点击这里注册</a>
                                     </td>
                                 </tr>
@@ -163,11 +164,10 @@
                 </tr>            
          </table>
      </div>
-     <div id="WinIns" title="注册用户" collapsible="false" minimizable="false" maximizable="false"  style="padding: 15px;background:#fafafa; width:99%;height:99%;display:none; overflow:hidden">
+     <div id="WinIns" title="注册用户"  style="padding: 15px;background:#fafafa; width:99%;height:99%; display :none; overflow:hidden">
            <div region="center" border="false" style="background: #fff; border: 1px solid #ccc;width:98%;height:93%;">
                 <table  border=0 cellpadding=0 cellspacing=0 style="width:380px; height:180px">
-                            <tbody>
-                                
+                            <tbody>                                
                                 <tr>
                                     <td height=30 width=60>用户名：</td>
                                     <td valign="middle" >
@@ -203,10 +203,10 @@
                                 </tr> 
                                 <tr>
                                     <td height=30 width=60>邮    箱：</td>
-                                    <td valign="middle" >
+                                    <td valign="middle" colspan="2" >
                                         <input id="Text2" runat=server name="txtUserName" value='' 
                                         style="color:#ff0000; font-weight:bold; padding-left:5px; width:135px; height:25px; vertical-align:middle;" 
-                                        type="text"  dataType="Require" msg="用户名不能为空" maxLength=16 />
+                                        type="text"  dataType="Require" msg="邮箱不能为空" maxLength=16 />
                                     </td>                                                  
                                 </tr>                      
                                 <tr>
@@ -214,8 +214,8 @@
                                     <td  >                                        
                                         <input runat=server name="txtCode" value='' style="color:#ff0000; font-weight:bold; padding-left:5px; width:135px; height:25px; vertical-align:middle;" type="text" title="看不清楚?点击图片切换"  maxLength=4  dataType="Require" msg="验证码不能为空" />&nbsp;                                                                
                                      </td>
-                                     <td style="width:100px">                           
-                                        <img alt='看不清，换一张' id="Img1" src="../CheckCode.ashx?abc='+Math.random()" onerror="this.onerror=null;this.src='CheckCode.ashx?abc='+Math.random()" onclick="this.src='CheckCode.ashx?abc='+Math.random()" />
+                                     <td style="width:80px">                           
+                                        <img alt='看不清，换一张' id="imgCode" src="../CheckCode.ashx?abc='+Math.random()" onerror="this.onerror=null;this.src='CheckCode.ashx?abc='+Math.random()" onclick="this.src='CheckCode.ashx?abc='+Math.random()" />
                                     </td>   
                                 </tr>                             
                                 

@@ -19,7 +19,7 @@ namespace CMG.ashx
         public void ProcessRequest(HttpContext context)
         {
             context.Response.ContentType = "text/plain";
-            if (!string.IsNullOrEmpty(context.Request.QueryString["rdItem"]))
+            if (!string.IsNullOrEmpty(context.Request["rdItem"].ToString()))
             {
                 string strUseName = context.Request["username"].ToString();
                 string strPwd = context.Request["pwd"].ToString();
