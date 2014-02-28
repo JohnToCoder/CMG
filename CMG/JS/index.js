@@ -27,13 +27,13 @@ $(function () {
 });
 
 function openWin() {
-    var left =0.5*( $(window).width())-70;
+    var left =0.5*( $(window).width())-50;
     $('#WinIns').window({
         width: 450,
         modal: true,
         shadow: true,
         closed: true,
-        height: 380,
+        height: 300,
         top: 150,
         left: left,
         resizable: false,
@@ -101,7 +101,10 @@ function getKey(e) {
     // alert(keycode);
 
     if (keycode == 13) {
-        $('#btnLogin').trigger('click');
+        $('#btnLogin').bind('click', function () {
+            //        alert('test1');
+            btnLoginClick();
+        });
     }
 }
 //初始化加载车次的查询信息
