@@ -11,6 +11,7 @@ namespace CMG.ashx
 {
     /// <summary>
     /// editChePiao 的摘要说明
+    /// 删除或者修改查票信息
     /// </summary>
     public class editChePiao : IHttpHandler, IRequiresSessionState
     {

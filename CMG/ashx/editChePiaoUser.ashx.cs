@@ -12,6 +12,7 @@ namespace CMG.JS
 {
     /// <summary>
     /// ChePiaoUser 的摘要说明
+    /// 用户登陆后订票和删除已订票信息
     /// </summary>
     public class ChePiaoUser : IHttpHandler, IRequiresSessionState
     {

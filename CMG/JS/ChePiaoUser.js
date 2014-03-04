@@ -69,11 +69,11 @@ function deleteDingPiao() {
     var chked = chk.filter(':checked');
 
     if (chked.length == 0) {
-        $.messager.alert("删除错误", "请选择删除项目！", "warning");
+        $.messager.alert("删除错误", "请选择退票项目！", "warning");
     }
     else {
 
-        $.messager.confirm('系统提示', '您確定刪除嗎?',
+        $.messager.confirm('系统提示', '您確定退票嗎?',
                                             function (YesOrNO) {
 
                                                 if (YesOrNO) {
@@ -101,7 +101,7 @@ function getKeyValue(strChked) {
         },
         function (Return) {
             if (Return == "OK") {
-                alert("删除订票信息成功！");
+                alert("退票成功！");
                 location.reload();
             }
         }

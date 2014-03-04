@@ -12,6 +12,7 @@ namespace CMG.ashx
 {
     /// <summary>
     /// editPersonal 的摘要说明
+    /// 用户登陆后修改自己的个人信息
     /// </summary>
     public class editPersonal : IHttpHandler, IRequiresSessionState
     {

@@ -171,7 +171,7 @@
                                 <tr>
                                     <td height=30 width=60>用户名：</td>
                                     <td valign="middle" colspan="2">
-                                        <input runat=server name="txtUserName" value='' 
+                                        <input runat=server name="txtUserName" value=''  id="rUserName"
                                         style="color:#ff0000; font-weight:bold; padding-left:5px; width:165px; height:25px; vertical-align:middle;" 
                                         type="text"  dataType="Require" msg="用户名不能为空" maxLength=16 />
                                     </td>                                                  
@@ -179,7 +179,7 @@
                                 <tr>
                                     <td height=30 width=60>密    码：</td>
                                     <td  colspan="2">
-                                        <input runat=server name="txtPassWord" value='' 
+                                        <input runat=server name="txtPassWord" value='' id="rPassWord"
                                         style="color:#ff0000; font-weight:bold; padding-left:5px; width:165px; height:25px; vertical-align:middle;" 
                                         type="password"  dataType="Require" msg="密码不能为空" maxLength=16 />
                                     </td>
@@ -188,7 +188,7 @@
                                 <tr>
                                     <td height=30 width=60>重复密码：</td>
                                     <td  colspan="2">
-                                        <input  runat=server name="txtPassWord" value='' 
+                                        <input  runat=server name="txtPassWord" value='' id="rRePassWord"
                                         style="color:#ff0000; font-weight:bold; padding-left:5px; width:165px; height:25px; vertical-align:middle;" 
                                         type="password"  dataType="Require" msg="密码不能为空" maxLength=16 />
                                     </td>                                   
@@ -196,7 +196,7 @@
                                 <tr>
                                     <td height=30 width=60>手机号 ：</td>
                                     <td valign="middle" colspan="2">
-                                        <input id="Text1" runat=server name="txtUserName" value='' 
+                                        <input id="rMobile" runat=server name="txtUserName" value='' 
                                         style="color:#ff0000; font-weight:bold; padding-left:5px; width:165px; height:25px; vertical-align:middle;" 
                                         type="text"  dataType="Require" msg="手机号不能为空" maxLength=16 />
                                     </td>                                                  
@@ -204,7 +204,7 @@
                                 <tr>
                                     <td height=30 width=60>邮    箱：</td>
                                     <td valign="middle" colspan="2" >
-                                        <input id="Text2" runat=server name="txtUserName" value='' 
+                                        <input id="rEmail" runat=server name="txtUserName" value='' 
                                         style="color:#ff0000; font-weight:bold; padding-left:5px; width:165px; height:25px; vertical-align:middle;" 
                                         type="text"  dataType="Require" msg="邮箱不能为空" maxLength=16 />
                                     </td>                                                  
@@ -212,7 +212,7 @@
                                 <tr>
                                     <td height=30 width=60>验证码：</td>
                                     <td  style="width:120px">                                        
-                                        <input runat=server name="txtCode" value='' style="color:#ff0000; font-weight:bold; padding-left:5px; width:105px; height:25px; vertical-align:middle;" type="text" title="看不清楚?点击图片切换"  maxLength=4  dataType="Require" msg="验证码不能为空" />&nbsp;                                                                
+                                        <input id="rImageCode" runat=server name="txtCode" value='' style="color:#ff0000; font-weight:bold; padding-left:5px; width:105px; height:25px; vertical-align:middle;" type="text" title="看不清楚?点击图片切换"  maxLength=4  dataType="Require" msg="验证码不能为空" />&nbsp;                                                                
                                      </td>
                                      <td >                           
                                         <img alt='看不清，换一张' id="imgCode" src="../CheckCode.ashx?abc='+Math.random()" onerror="this.onerror=null;this.src='CheckCode.ashx?abc='+Math.random()" onclick="this.src='CheckCode.ashx?abc='+Math.random()" />

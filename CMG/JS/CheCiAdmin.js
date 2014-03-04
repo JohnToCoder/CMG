@@ -1,4 +1,5 @@
-﻿$(function () {
+﻿///对车次信息进行增删查改操作的页面响应，使用post回传到服务器
+$(function () {
     $('#btnSearch').bind('click', function () {
         var strChufa = $('#strChufa').combobox('getValue').toString();
         var strMudi = $('#strMudi').combobox('getValue').toString();
@@ -85,7 +86,7 @@ function addCheCi() {
     var straddPiaoJia = $('#txtPiaoJia').val().toString();
     var straddCheDate = $('#txtDate').datebox("getValue").toString();
     var straddCheTime = $('#txtTime').val().toString();
-    if (straddCheID == '' || straddChufaID == '' || straddMudiID == '' || straddPiaoShu || straddPiaoJia=='') {
+    if (straddCheID == '' || straddChufaID == '' || straddMudiID == '' || straddPiaoShu=='' || straddPiaoJia=='') {
         $.messager.alert("新增错误", "请填好新增项目内容！", "warning");
     } else {
         $.post('../ashx/editCheCi.ashx',

@@ -5,7 +5,7 @@
         windowResize();  //窗口改变大小时加载  
         window.location.reload();
     });
-
+    //工作台空间的页面处理
     $('#tabs').tabs('add', {
         title: '我的工作台',
         iconCls: 'icon icon-home',
@@ -13,7 +13,7 @@
     });
     tabClose();
     tabCloseEven();
-
+    //右键出现菜单的操作
     $('.leftMenulist li a').click(function () {
         var tabTitle = $(this).children('.nav').text();
 
@@ -31,7 +31,7 @@
     });
 
 });
-
+//页面大小变化之后内容页也变
 function windowResize() {
     var width = $(window).width() - 10;
     var height = $(window).height() - 10;
@@ -52,6 +52,7 @@ function setHeight() {
     c.width(cwidth - 10);
     c.layout('resize');
 }
+//新增一个窗口的操作
 function addTab(subtitle, url, icon) {
     if (!$('#tabs').tabs('exists', subtitle)) {
         $('#tabs').tabs('add', {

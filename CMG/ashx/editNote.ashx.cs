@@ -11,6 +11,7 @@ namespace CMG.ashx
 {
     /// <summary>
     /// editNote 的摘要说明
+    /// 编辑通知信息
     /// </summary>
     public class editNote : IHttpHandler, IRequiresSessionState
     {

@@ -12,6 +12,7 @@ namespace CMG.ashx
 {
     /// <summary>
     /// LoginHandler 的摘要说明
+    /// 登录控制，验证用户信息，添加Session值
     /// </summary>
     public class LoginHandler : IHttpHandler,IRequiresSessionState
     {
@@ -21,15 +22,17 @@ namespace CMG.ashx
             context.Response.ContentType = "text/plain";
             if (!string.IsNullOrEmpty(context.Request["rdItem"].ToString()))
             {
+                //获取用户上传的值
                 string strUseName = context.Request["username"].ToString();
                 string strPwd = context.Request["pwd"].ToString();
                 string strCode = context.Request["code"].ToString();
                 Users userInfo = new Users(); //创建用户信息类，保存用户信息
+                //连接数据库查询
                 string strSQL = " select a.ID,a.UserID,a.UserName,a.UserPW,a.UserType,b.TypeName,a.UserTel,a.UserEmail from dbo.tabUsers a left join dbo.tabUserType b on a.UserType=b.TypeID " + " where a.UserName = '" + strUseName + "'";
                 string strDataConn = ConfigurationManager.ConnectionStrings["SQLDataConnStr"].ConnectionString;
                 SqlConnection dataConn = new SqlConnection(strDataConn);
                 SqlCommand command = new SqlCommand(strSQL, dataConn);
-
+                //检查用户输入内容
                 if (context.Request.Cookies["checkcode"].Value.ToString() == null)
                 {
                     context.Response.Write("overtime");
@@ -42,6 +45,7 @@ namespace CMG.ashx
 
                 else
                 {
+                    //获取数据库中用户信息
                     dataConn.Open();
                     SqlDataReader dr = command.ExecuteReader();
                     while (dr.Read())
@@ -58,7 +62,7 @@ namespace CMG.ashx
                     }
                     dr.Close();
                     dataConn.Close();
-
+                    //验证用户信息并存储session值
                     if (strUseName == userInfo.uName && strPwd == userInfo.uPW)
                     {
 

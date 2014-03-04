@@ -45,6 +45,50 @@ function openWin() {
 //新增用户注册
 function addUser() {
     alert('新增用户');
+    var strrUserName = $('#rUserName').val().toString();
+    var strRpassword = $('#rPassWord').val().toString();
+    var strrRePassWord = $('#rRePassWord').val().toString();
+    var strrMobile = $('#rMobile').val().toString();
+    var strrEmail = $('#rEmail').val().toString();
+    var strrImageCode = $('#rImageCode').val().toString();
+    if (strrUserName == '' || strRpassword == '' || strrRePassWord == '' || strrImageCode == '') {
+        alert('请输入正确的用户名或者密码！');
+    } else if (strRpassword != strrRePassWord) {
+        alert('重复密码错误！');
+    } else {
+        $.post("../ashx/Register.ashx?",
+            {
+                'username': escape(strrUserName),
+                'pwd': $.md5(strRpassword),
+                'tel': escape(strrMobile),
+                'email':escape(strrEmail),
+                'code': escape(strrImageCode)
+            },
+            function (ReturnValue) {
+                //                alert('test4');
+                if (ReturnValue == "overtime") {
+                    alert('驗證碼已過期');
+                    $('#rUserName').val('');
+                    $('#rPassWord').val('');
+                    $('#rRePassWord').val('');
+                    $('#rMobile').val('');
+                    $('#rEmail').val('');
+                    $('#rImageCode').val('');
+
+                }
+                
+                else if (ReturnValue == "CodeError") {
+                    alert("验证码错误");
+                    $('#rPassWord').val('');
+                    $('#rRePassWord').val('');
+                }
+                else if (ReturnValue == "UserSuccess") {
+                    //                    alert('test5');
+                    location.href = "../Index.aspx";
+                }
+
+            });
+    }
 }
 //登陆按钮点击事件
 function btnLoginClick() {

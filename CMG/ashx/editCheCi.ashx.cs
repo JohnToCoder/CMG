@@ -12,6 +12,7 @@ namespace CMG.ashx
 {
     /// <summary>
     /// editCheCi 的摘要说明
+    /// 编辑车次信息，对车次信息进行修改和删除操作
     /// </summary>
     public class editCheCi : IHttpHandler, IRequiresSessionState
     {

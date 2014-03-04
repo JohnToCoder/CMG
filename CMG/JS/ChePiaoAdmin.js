@@ -1,4 +1,6 @@
-﻿$(function () {
+﻿//增删查改车票信息的页面响应，使用post回传到服务器
+
+$(function () {
     $('#btnSearch').bind('click', function () {
         var strSCheCi = $('#strSCheCi').combobox('getValue').toString();
         var strSUser = $('#strSUser').combobox('getValue').toString();
